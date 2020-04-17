@@ -1,0 +1,15 @@
+syntax: glob
+Library/
+Temp/
+Assets/Plugins/Editor/JetBrains/
+Assets/Plugins/Editor/JetBrains.meta
+.idea.EditorTest
+*.csproj
+.vs/
+*.DotSettings.user
+*.sln
+*.orig
+*.orig.meta
+.idea/*
+Logs
+obj/*
