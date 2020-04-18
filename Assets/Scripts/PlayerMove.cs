@@ -2,7 +2,7 @@
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
-public class Move : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     public float speed = 1;
     public float torque = 1; 
