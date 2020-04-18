@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DefaultConsts
   m_EditorClassIdentifier: 
   TargetPopulation: 1000
+  SoulsFromPopulationRate: 0.005
   GoToHellRate: 2
   HellAttackDeathPercent: 15
   RessurectRate: 10

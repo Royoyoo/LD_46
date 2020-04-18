@@ -106,8 +106,8 @@ Rigidbody:
   m_GameObject: {fileID: 2035863171356822277}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 1
+  m_Drag: 4
+  m_AngularDrag: 20
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89f7b00a0f5dbd4b9cd116c1647667e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  torque: 0.2
+  speed: 20
+  torque: 10
 --- !u!114 &1743236399277439098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7883721651dd294394b6559579a105a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulsCount: 0
+  Type: 0
+  soulsCount: 0
+  collectSpeed: 2
   MaxSoulsCount: 10
   MaxVisibleSoulsCount: 50
 --- !u!1001 &4786318871756525254

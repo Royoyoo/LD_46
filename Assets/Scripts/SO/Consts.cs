@@ -6,6 +6,8 @@ using UnityEngine;
 public class Consts : ScriptableObject
 {
     public float TargetPopulation;
+    public float SoulsFromPopulationRate;
+
     public float GoToHellRate;
     public float HellAttackDeathPercent;
 

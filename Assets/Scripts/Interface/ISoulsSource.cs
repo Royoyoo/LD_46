@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ISoulsSource
+public interface ISoulsSource
 {
-    public float SoulsCount;
-    public float CollectSpeed;
+    float SoulsCount { get; set; }
+    float CollectSpeed { get; set; }
 }
