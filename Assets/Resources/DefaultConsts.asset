@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DefaultConsts
   m_EditorClassIdentifier: 
   TargetPopulation: 1000
-  GoToHellRate: 20
+  GoToHellRate: 2
   HellAttackDeathPercent: 15

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
-    public GameplayUI gameplayUI;
+    GameplayUI gameplayUI;
 
     public int obstaclesSpawnCount = 2;
     public Vector3 LocationBounds;
