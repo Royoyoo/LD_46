@@ -1,8 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 1;

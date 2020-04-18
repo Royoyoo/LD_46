@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
        // Debug.Log("forceOfStrike = " + speedRatio);
 
         var fallOverboard = (int) (boatContainer.SoulsCount * speedRatio);
-        //Debug.Log("fallOverboard " + fallOverboard);
+        Debug.Log("fallOverboard " + fallOverboard);
 
         if (fallOverboard != 0) 
         {
