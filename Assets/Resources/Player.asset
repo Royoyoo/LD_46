@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Coins: 1000
+  WorldPopulation: 100
+  DeadShorePopulation: 10
+  HellDoorPopulation: 10
+  HellPopulation: 1
+  TargetHellPopulation: 50
+  CurrentBoatCapacity: 1
+  MaxBoatCapacity: 10

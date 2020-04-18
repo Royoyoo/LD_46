@@ -6,4 +6,14 @@ using UnityEngine;
 public class Player : ScriptableObject
 {
     public float Coins;
+    public float WorldPopulation;
+    public float DeadShorePopulation;
+    public float HellDoorPopulation;
+
+    public float HellPopulation;
+    public float TargetHellPopulation;
+
+    public float CurrentBoatCapacity;
+    public float MaxBoatCapacity;
+
 }

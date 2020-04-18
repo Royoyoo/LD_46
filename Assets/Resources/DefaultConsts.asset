@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046bb0bc337380c4fbfe4c1a0686cc5f, type: 3}
   m_Name: DefaultConsts
   m_EditorClassIdentifier: 
+  TargetPopulation: 1000
+  GoToHellRate: 20
+  HellAttackDeathPercent: 15
