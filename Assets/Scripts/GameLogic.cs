@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
+    public GameplayUI gameplayUI;
+
     public int obstaclesSpawnCount = 2;
     public Vector3 LocationBounds;
     public GameObject ObstaclePrefab;
@@ -12,15 +14,23 @@ public class GameLogic : MonoBehaviour
 
     void Start()
     {
+        gameplayUI = FindObjectOfType<GameplayUI>();
         StartCoroutine(GameProgress());
     }
 
     IEnumerator GameProgress()
     {
-        while(!isStarted)
+        while (!isStarted)
         {
             yield return null;
         }
+
+        var textDelay = new WaitForSeconds(4f);
+
+        gameplayUI.ShowDialog(DialogSide.Left, DialogPortrait.Haron, "Let's start.");
+        yield return textDelay;
+
+        gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Aid, "Go-go-go!");
 
         StartCoroutine(HellProcess());
     }
