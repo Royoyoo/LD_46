@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class SoulsSpawner : MonoBehaviour
 {
-    [Range(0.1f, 3f)]
-    public float AreaRadius = 1;
+    [Range(0.5f, 5f)]
+    public float DesinationAreaRadius = 1;
 
     public int SoulsCount = 0;
 
-    public int MaxVisibleSoulsCount = 100;
+    public int MaxVisibleSoulsCount = 50;
 
     public Transform soulDestinationMarker;
 
@@ -20,6 +20,8 @@ public class SoulsSpawner : MonoBehaviour
     public float SpawnDelay = 1f;
 
     private float currentProgress = 0;
+
+    public SoulsContainer souls;
 
 
     private void Update()
@@ -34,17 +36,20 @@ public class SoulsSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Debug.Log("Spawn");
-        SoulsCount++;
+        //Debug.Log("Spawn");
 
-        if(SoulsCount < MaxVisibleSoulsCount)
+        // TODO: добавлять в контейнер, когда они придут на берег
+        var added = souls.Add();
+
+        if (added && souls.NeedVisible)
         {
             var newSoul = Instantiate(SoulPrefab, this.transform);
+            newSoul.Active = true;
             var randomPoint = UnityEngine.Random.insideUnitSphere;
             randomPoint.y = 0;
 
-            newSoul.Destination = soulDestinationMarker.position + randomPoint * AreaRadius;
-        }
+            newSoul.Destination = soulDestinationMarker.position + randomPoint * DesinationAreaRadius;
+        }      
 
         OnSoulSpawn?.Invoke(SoulsCount);        
     }
@@ -57,6 +62,6 @@ public class SoulsSpawner : MonoBehaviour
 
         //Пункт назначения
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(soulDestinationMarker.position, AreaRadius);
+        Gizmos.DrawWireSphere(soulDestinationMarker.position, DesinationAreaRadius);
     }
 }

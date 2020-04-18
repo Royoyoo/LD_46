@@ -7,14 +7,15 @@ public class Soul : MonoBehaviour
     [Range(0.1f, 2f)]
     public float Speed = 1;
     [Range(0.1f, 2f)]
-    public float MovingTime = 1;
-    
+    public float MovingTime = 1;    
    
     private float startTime;
     private float journeyLength;
 
     public Vector3 startPosition;
-    public Vector3 Destination;
+    public Vector3 Destination = Vector3.zero;
+
+    public bool Active;
 
     void Start()
     {
@@ -26,6 +27,9 @@ public class Soul : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Active || Destination == Vector3.zero)
+            return;
+
         float distCovered = (Time.time - startTime) * Speed;
         float fracJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(startPosition, Destination, fracJourney);

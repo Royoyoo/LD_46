@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144250091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.586, y: 0, z: -0.596}
+  m_LocalPosition: {x: 4.06, y: 0, z: -6.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8369107756251999687}
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2586197489815449527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.69, y: 1, z: 11.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 144250092}
   m_Father: {fileID: 0}
@@ -74,10 +74,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce5420b0948af640bd38222159bfe70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreaRadius: 1.82
+  DesinationAreaRadius: 1.82
   SoulsCount: 0
   MaxVisibleSoulsCount: 50
   soulDestinationMarker: {fileID: 144250092}
   SoulPrefab: {fileID: 3933413777311116928, guid: a2f503e4e0cd15e44bba6190ccaf0386,
     type: 3}
   SpawnDelay: 1
+  souls: {fileID: 0}
