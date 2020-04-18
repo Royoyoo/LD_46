@@ -17,40 +17,42 @@ public class SoulsSpawner : MonoBehaviour
     // В секундах
     public float SpawnDelay = 1f;
 
-    private float currentProgress = 0;
+    float lastSpawnCount;
 
     public SoulsContainer souls;
 
     public bool SpawnFromContainer;
 
-    private void Update()
+    void Start()
     {
-        if (SpawnFromContainer)
-        {            
-            if (souls.Remove())
-            {
-                Spawn();               
-            }
-        }
-        else
+        lastSpawnCount = souls.SoulsCount;
+    }
+
+    void Update()
+    {
+        souls.SoulsCount += Data.consts.SoulsFromPopulationRate * Data.player.WorldPopulation * Time.deltaTime;
+        CheckSpawn();
+    }
+
+    void CheckSpawn()
+    {
+        if (souls.SoulsCount - lastSpawnCount > 1f)
         {
-            currentProgress += Time.deltaTime;
-            if (currentProgress > SpawnDelay)
-            {
-                currentProgress -= SpawnDelay;
-                var added = souls.Add();
-                if (added)
-                {
-                    Spawn();
-                }
-                //OnSoulSpawn?.Invoke(souls.SoulsCount);
-            }
-        }       
+            lastSpawnCount = lastSpawnCount + 1f;
+            Spawn();
+            CheckSpawn();
+        }
+        else if(souls.SoulsCount - lastSpawnCount < -1f)
+        {
+            lastSpawnCount = lastSpawnCount - 1f;
+            DestroySoul();
+            CheckSpawn();
+        }
     }
 
     private void Spawn()
     {
-        Debug.Log("Spawn");
+        //Debug.Log("Spawn");
 
         // TODO: добавлять в контейнер, когда они придут к точке назначения
       
@@ -66,6 +68,11 @@ public class SoulsSpawner : MonoBehaviour
         }      
 
         //OnSoulSpawn?.Invoke(souls.SoulsCount);        
+    }
+
+    void DestroySoul()
+    {
+        Debug.LogWarning("DestroySoul Object - Implement this!");
     }
 
     private void OnDrawGizmos()

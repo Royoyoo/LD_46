@@ -102,10 +102,10 @@ public class GameLogic : MonoBehaviour
             var amount = Data.consts.RessurectRate * Time.deltaTime;
             Data.player.WorldPopulation += amount;
             Data.player.CurrentBoatCapacity = Mathf.Max(Data.player.CurrentBoatCapacity - amount, 0f);
-            Data.player.Coins += Data.consts.CoinsRate * Time.deltaTime;
+            Data.player.Coins += Data.consts.CoinsRate * amount;
         }
     }
-
+    
     public void ShowQuestMessage()
     {
         gameplayUI.ShowQuestMessage(activeQuest.startMessage);
@@ -127,6 +127,8 @@ public class GameLogic : MonoBehaviour
 
     public void HellAttack()
     {
+        gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Tanatos, "I'll kill you all!");
+
         for (int i = 0; i < obstaclesSpawnCount; i++)
         {
             var pos = new Vector3(Random.Range(-LocationBounds.x, LocationBounds.x), 0f, Random.Range(-LocationBounds.z, LocationBounds.z));

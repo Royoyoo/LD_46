@@ -1,29 +1,19 @@
 ﻿using UnityEngine;
 
-public enum ShoreType
-{
-    Living,
-    Aid,
-    Resurrection,
-}
-
 public enum InteractionType
 {
     // добавить на берег из лодки
-    Add,
+    Ressurect,
     // взять с берега на лодку
-    Remove,    
+    Collect,    
 }
-
 
 [RequireComponent(typeof(BoxCollider))]
 public class ShoreTrigger : MonoBehaviour
 {
     public SoulsContainer souls;
 
-    public ShoreType Type;
-
-    public InteractionType InteractionType;
+    //public InteractionType InteractionType;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,10 +24,10 @@ public class ShoreTrigger : MonoBehaviour
         {
           
             player.InteractionContainer = souls;
-            player.InteractionType = InteractionType;
+            //player.InteractionType = InteractionType;
 
-            Debug.Log("souls.SoulsCount  " + souls.SoulsCount);
-            Debug.Log("OnTriggerEnter Player " + Type);
+            Debug.Log("souls.SoulsCount  " + souls.soulsCount);
+            //Debug.Log("OnTriggerEnter Player " + Type);
         }
         //}     
     }
@@ -48,7 +38,7 @@ public class ShoreTrigger : MonoBehaviour
         if (player != null)
         {
             player.InteractionContainer = null;
-            Debug.Log("OnTriggerExit Player " + Type);
+            //Debug.Log("OnTriggerExit Player " + Type);
         }
         //if (other.gameObject.tag == "Player")
         //{

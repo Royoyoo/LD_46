@@ -1,27 +1,81 @@
 ﻿using System;
 using UnityEngine;
 
-
-public class SoulsContainer : MonoBehaviour
+public enum ContainerType
 {
-    public int SoulsCount = 0;
+    Living,
+    Aid,
+    Resurrection,
+    Charon
+}
+
+public class SoulsContainer : MonoBehaviour, ISoulsSource
+{
+    public ContainerType Type;
+    public float soulsCount = 0;
+    public float collectSpeed = 2;
 
     [Range(-1, 10000)]
     public int MaxSoulsCount = 50;
 
     public int MaxVisibleSoulsCount = 50;
 
-    public bool NeedVisible => SoulsCount < MaxVisibleSoulsCount;
+    public bool NeedVisible => soulsCount < MaxVisibleSoulsCount;
 
-    public event Action<int> OnSoulsCountChange;
+    public float SoulsCount
+    {
+        get => soulsCount;
+        set
+        {
+            switch (Type)
+            {
+                case ContainerType.Living:
+                    Data.player.DeadShorePopulation = value;
+                    break;
+                case ContainerType.Aid:
+                    Data.player.HellDoorPopulation = value;
+                    break;
+                case ContainerType.Resurrection:
+                    break;
+                case ContainerType.Charon:
+                    break;
+                default:
+                    break;
+            }
+            soulsCount = value;
+        }
+    }
+
+    public float CollectSpeed { get => collectSpeed; set => collectSpeed = value; }
+
+    public event Action<float> OnSoulsCountChange;
+
+    void Start()
+    {
+        switch (Type)
+        {
+            case ContainerType.Living:
+                soulsCount = Data.player.DeadShorePopulation;
+                break;
+            case ContainerType.Aid:
+                soulsCount = Data.player.HellDoorPopulation;
+                break;
+            case ContainerType.Resurrection:
+                break;
+            case ContainerType.Charon:
+                break;
+            default:
+                break;
+        }
+    }
 
     public bool Add()
     {
         if (CanAdd())
         {
-            SoulsCount++;
+            soulsCount++;
             // Debug.Log(SoulsCount);
-            OnSoulsCountChange?.Invoke(SoulsCount);
+            OnSoulsCountChange?.Invoke(soulsCount);
             return true;
         }
 
@@ -30,15 +84,15 @@ public class SoulsContainer : MonoBehaviour
 
     public bool CanAdd()
     {
-        return MaxSoulsCount == -1 || SoulsCount < MaxSoulsCount;
+        return MaxSoulsCount == -1 || soulsCount < MaxSoulsCount;
     }
 
     public bool Remove()
     {
         if (CanRemove())
         {
-            SoulsCount--;
-            OnSoulsCountChange?.Invoke(SoulsCount);
+            soulsCount--;
+            OnSoulsCountChange?.Invoke(soulsCount);
             return true;
         }
         return false;
@@ -50,14 +104,14 @@ public class SoulsContainer : MonoBehaviour
         {
             if (CanRemove())
             {
-                SoulsCount--;
-                OnSoulsCountChange?.Invoke(SoulsCount);               
+                soulsCount--;
+                OnSoulsCountChange?.Invoke(soulsCount);               
             }           
         }       
     }
 
     public bool CanRemove()
     {
-        return SoulsCount > 0;
+        return soulsCount > 0;
     }
 }

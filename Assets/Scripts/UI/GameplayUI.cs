@@ -41,6 +41,7 @@ public class GameplayUI : MonoBehaviour
 
     public Image BoatBar;
     public TextMeshProUGUI BoatCount;
+    public TextMeshProUGUI CoinsCount;
 
     public Animation popupAnim;
     public List<DialogPopup> popups = new List<DialogPopup>();
@@ -60,6 +61,7 @@ public class GameplayUI : MonoBehaviour
 
         BoatBar.fillAmount = Data.player.CurrentBoatCapacity / Data.player.MaxBoatCapacity;
         BoatCount.text = $"{Data.player.CurrentBoatCapacity.ToString("F0")}/{Data.player.MaxBoatCapacity.ToString("F0")}";
+        CoinsCount.text = $"Coins: {Data.player.Coins.ToString("F0")}";
     }
 
     public void ShowDialog(DialogSide side, DialogPortrait portrait, string message)

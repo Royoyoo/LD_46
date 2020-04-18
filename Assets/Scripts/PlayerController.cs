@@ -12,17 +12,20 @@ public class PlayerController : MonoBehaviour
     public SoulsContainer boatContainer;
 
     public SoulsContainer InteractionContainer { get; internal set; }
-    public InteractionType InteractionType { get; internal set; }
+    //public InteractionType InteractionType { get; internal set; }
 
     // int - количество на лодке
-    public event Action<int> OnSoulsCountChange;
+    public event Action<float> OnSoulsCountChange;
 
     private PlayerMove playerMove;
+
+    GameLogic gameLogic;
 
     private void Awake()
     {
         boatContainer = GetComponent<SoulsContainer>();
         playerMove = GetComponent<PlayerMove>();
+        gameLogic = FindObjectOfType<GameLogic>();
     }
 
     private void OnEnable()
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             //Debug.Log("Input.GetKeyDown(KeyCode.Space)");
             if (InteractionContainer == null)
@@ -48,15 +51,32 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            if (InteractionType == InteractionType.Remove)
+            switch (InteractionContainer.Type)
             {
-                TryRemoveFromShore();               
+                case ContainerType.Living:
+                    gameLogic.CollectSouls(InteractionContainer);
+                    break;
+                case ContainerType.Aid:
+                    gameLogic.CollectSouls(InteractionContainer);
+                    break;
+                case ContainerType.Resurrection:
+                    gameLogic.RessurectSouls();
+                    break;
+                default:
+                    break;
             }
+            
+            ShowHideSoulDisplay();
 
-            if (InteractionType == InteractionType.Add)
-            {
-                TryAddToShore();
-            }
+            //if (InteractionType == InteractionType.Remove)
+            //{
+            //    TryRemoveFromShore();
+            //}
+
+            //if (InteractionType == InteractionType.Add)
+            //{
+            //    TryAddToShore();
+            //}
         }
     }    
 
@@ -82,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("+1 душа на лодке");
 
-        OnSoulsCountChange?.Invoke(boatContainer.SoulsCount);
+        OnSoulsCountChange?.Invoke(boatContainer.soulsCount);
     }
 
     private void TryAddToShore()
@@ -108,15 +128,17 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("-1 душа на лодке");
 
-        OnSoulsCountChange?.Invoke(boatContainer.SoulsCount);
+        OnSoulsCountChange?.Invoke(boatContainer.soulsCount);
     }
 
     private void ShowHideSoulDisplay()
     {
-        if (boatContainer.SoulsCount != 0)
-            soulDisplay.gameObject.SetActive(true);
-        else
-            soulDisplay.gameObject.SetActive(false);
+        soulDisplay.gameObject.SetActive(Data.player.CurrentBoatCapacity > 0.5f);
+
+        //if (boatContainer.soulsCount != 0)
+        //    soulDisplay.gameObject.SetActive(true);
+        //else
+        //    soulDisplay.gameObject.SetActive(false);
     }
 
     private void PlayerMove_OnColladedWithObstable(float speed)
@@ -126,7 +148,7 @@ public class PlayerController : MonoBehaviour
         var speedRatio = speed / playerMove.speed;
        // Debug.Log("forceOfStrike = " + speedRatio);
 
-        var fallOverboard = (int) (boatContainer.SoulsCount * speedRatio);
+        var fallOverboard = (int) (boatContainer.soulsCount * speedRatio);
         //Debug.Log("fallOverboard " + fallOverboard);
 
         if (fallOverboard != 0) 
@@ -135,7 +157,7 @@ public class PlayerController : MonoBehaviour
             
             ShowHideSoulDisplay();
 
-            OnSoulsCountChange?.Invoke(boatContainer.SoulsCount);
+            OnSoulsCountChange?.Invoke(boatContainer.soulsCount);
         }
     }
 }

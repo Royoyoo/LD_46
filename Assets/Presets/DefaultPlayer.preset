@@ -57,3 +57,19 @@ Preset:
     propertyPath: MaxBoatCapacity
     value: 10
     objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: gotQuest
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: currentQuest.startMessage
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: currentQuest.finishMessage
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: currentQuest.Effect
+    value: 0
+    objectReference: {fileID: 0}
