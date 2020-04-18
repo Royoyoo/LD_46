@@ -7,12 +7,23 @@ public enum ShoreType
     Resurrection,
 }
 
+public enum InteractionType
+{
+    // добавить на берег из лодки
+    Add,
+    // взять с берега на лодку
+    Remove,    
+}
+
+
 [RequireComponent(typeof(BoxCollider))]
 public class ShoreTrigger : MonoBehaviour
 {
     public SoulsContainer souls;
 
     public ShoreType Type;
+
+    public InteractionType InteractionType;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,11 +34,11 @@ public class ShoreTrigger : MonoBehaviour
         {
           
             player.InteractionContainer = souls;
-            
+            player.InteractionType = InteractionType;
+
             Debug.Log("souls.SoulsCount  " + souls.SoulsCount);
             Debug.Log("OnTriggerEnter Player " + Type);
         }
-
         //}     
     }
 

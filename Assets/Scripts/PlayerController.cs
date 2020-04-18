@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public SoulsContainer boatContainer;
 
     public SoulsContainer InteractionContainer { get; internal set; }
+    public InteractionType InteractionType { get; internal set; }
 
     public event Action<int> OnSoulsCountChange;
 
@@ -31,26 +32,54 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            if (!boatContainer.CanAdd())
+            if (InteractionType == InteractionType.Remove)
             {
-                Debug.Log("Can't Add");
-                return;
+                if (!boatContainer.CanAdd())
+                {
+                    Debug.Log("Нельзя добавить на лодку");
+                    return;
+                }
+
+                if (!InteractionContainer.CanRemove())
+                {
+                    //Debug.Log("InteractionContainer.SoulsCount = " + InteractionContainer.SoulsCount);              
+                    Debug.Log("Нельзя забрать с берега " + InteractionContainer.name);
+                    return;
+                }
+
+                InteractionContainer.Remove();
+                boatContainer.Add();
+
+                if (boatContainer.SoulsCount > 1)
+                    soulDisplay.gameObject.SetActive(true);
+
+                Debug.Log("+1 душа на лодке");
             }
 
-            if (!InteractionContainer.CanRemove())
+            if (InteractionType == InteractionType.Add)
             {
-                //Debug.Log("InteractionContainer.SoulsCount = " + InteractionContainer.SoulsCount);              
-                Debug.Log("InteractionContainer can't Remove");
-                return;
+                if (!boatContainer.CanRemove())
+                {
+                    Debug.Log("Невозможно удалить из лодки");
+                    return;
+                }
+
+                if (!InteractionContainer.CanAdd())
+                {
+                    //Debug.Log("InteractionContainer.SoulsCount = " + InteractionContainer.SoulsCount);              
+                    Debug.Log("Нельзя добавить на берег " + InteractionContainer.name);
+                    return;
+                }
+
+                boatContainer.Remove();
+                InteractionContainer.Add();
+
+                if (boatContainer.SoulsCount == 0 )
+                    soulDisplay.gameObject.SetActive(false);
+
+                Debug.Log("-1 душа на лодке");
             }
-          
-            InteractionContainer.Remove();
-            boatContainer.Add();
 
-            if (boatContainer.SoulsCount > 1)
-                soulDisplay.gameObject.SetActive(true);
-
-            Debug.Log("Boat +1 soul");
         }
     }
 
