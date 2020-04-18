@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
@@ -9,6 +10,8 @@ public class PlayerMove : MonoBehaviour
 
     private Collider collider;
     private Rigidbody rigidBody;
+
+    public event Action<float> OnColladedWithObstable;
 
     private void Awake()
     {
@@ -52,5 +55,19 @@ public class PlayerMove : MonoBehaviour
         float turn = Input.GetAxis("Horizontal");
         var rotation = transform.up  * turn;
         rigidBody.AddTorque(rotation * torque);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("OnCollisionEnter" + collision.gameObject.name);
+
+        if (collision.gameObject.tag == "obstacle")
+        {
+            //Debug.Log("Speed = " + speed);
+            //Debug.Log("OnCollisionEnter + obstacle" + collision.gameObject.name);
+
+            var speed = rigidBody.velocity.magnitude;
+            OnColladedWithObstable?.Invoke(speed);            
+        }
     }
 }
