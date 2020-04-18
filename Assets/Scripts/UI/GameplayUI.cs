@@ -78,4 +78,9 @@ public class GameplayUI : MonoBehaviour
                 break;
         }
     }
+
+    public void ShowQuestMessage(string message)
+    {
+        Debug.Log("ShowQuestMessage");
+    }
 }

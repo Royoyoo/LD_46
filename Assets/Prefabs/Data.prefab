@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6162057628555199829}
   - component: {fileID: 6162057628555199830}
   m_Layer: 0
-  m_Name: Data 1
+  m_Name: Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,3 +63,14 @@ MonoBehaviour:
   ObstaclePrefab: {fileID: 7696026449063926389, guid: 495696bab004e034aae50d140289006d,
     type: 3}
   isStarted: 1
+  allQuests:
+  - startMessage: 111
+    finishMessage: 111111
+  - startMessage: 222
+    finishMessage: 222222
+  - startMessage: 333
+    finishMessage: 444444
+  activeQuest:
+    startMessage: 
+    finishMessage: 
+  questStartTime: 0

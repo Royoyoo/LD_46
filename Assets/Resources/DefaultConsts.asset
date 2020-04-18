@@ -15,3 +15,7 @@ MonoBehaviour:
   TargetPopulation: 1000
   GoToHellRate: 2
   HellAttackDeathPercent: 15
+  RessurectRate: 10
+  CoinsRate: 2
+  QuestActiveTime: 23
+  QuestCooldownTime: 7

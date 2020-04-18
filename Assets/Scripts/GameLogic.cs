@@ -12,6 +12,10 @@ public class GameLogic : MonoBehaviour
 
     public bool isStarted = false;
 
+    public List<Quest> allQuests = new List<Quest>();
+    public Quest activeQuest = null;
+    public float questStartTime;
+
     void Start()
     {
         gameplayUI = FindObjectOfType<GameplayUI>();
@@ -33,6 +37,7 @@ public class GameLogic : MonoBehaviour
         gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Aid, "Go-go-go!");
 
         StartCoroutine(HellProcess());
+        StartCoroutine(QuestProcess());
     }
 
     IEnumerator HellProcess()
@@ -56,6 +61,68 @@ public class GameLogic : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    IEnumerator QuestProcess()
+    {
+        questStartTime = Time.time - Data.consts.QuestCooldownTime - Data.consts.QuestActiveTime;
+
+        while (true)
+        {
+            if (Time.time > questStartTime + Data.consts.QuestCooldownTime + Data.consts.QuestActiveTime && !Data.player.gotQuest)
+            {
+                questStartTime = Time.time;
+                activeQuest = allQuests[Random.Range(0, allQuests.Count)];
+            }
+
+            if (Time.time > questStartTime + Data.consts.QuestActiveTime && !Data.player.gotQuest)
+            {
+                questStartTime = Time.time;
+                activeQuest = null;
+            }
+
+            yield return null;
+        }
+    }
+
+    public void CollectSouls(ISoulsSource source)
+    {
+        if(source.SoulsCount > 0 && Data.player.CurrentBoatCapacity < Data.player.MaxBoatCapacity)
+        {
+            var collectedAmount = source.CollectSpeed * Time.deltaTime;
+            source.SoulsCount = Mathf.Max(source.SoulsCount - collectedAmount, 0f);
+            Data.player.CurrentBoatCapacity = Mathf.Min(Data.player.CurrentBoatCapacity + collectedAmount, Data.player.MaxBoatCapacity);
+        }
+    }
+
+    public void RessurectSouls()
+    {
+        if (Data.player.CurrentBoatCapacity > 0)
+        {
+            var amount = Data.consts.RessurectRate * Time.deltaTime;
+            Data.player.WorldPopulation += amount;
+            Data.player.CurrentBoatCapacity = Mathf.Max(Data.player.CurrentBoatCapacity - amount, 0f);
+            Data.player.Coins += Data.consts.CoinsRate * Time.deltaTime;
+        }
+    }
+
+    public void ShowQuestMessage()
+    {
+        gameplayUI.ShowQuestMessage(activeQuest.startMessage);
+    }
+
+    public void AcceptQuest()
+    {
+        Data.player.gotQuest = true;
+        Data.player.currentQuest = activeQuest;
+    }
+
+    public void FinishQuest()
+    {
+        gameplayUI.ShowQuestMessage(activeQuest.finishMessage);
+        Data.player.currentQuest = null;
+        Data.player.gotQuest = true;
+        Debug.Log("QuestFinished");
     }
 
     public void HellAttack()
