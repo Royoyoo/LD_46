@@ -18,7 +18,7 @@ public class ShoreTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if(other.gameObject.tag == "Player")
-        //{
+        //{        
         var player = other.GetComponent<PlayerController>();
         if (player != null)
         {
