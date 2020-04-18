@@ -4,6 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+public enum DialogSide
+{
+    Left, Right
+}
+
+public enum DialogPortrait
+{
+    Haron, Aid, Tanatos, Soul, Upgrader
+}
+
+[System.Serializable]
+public class DialogPopup
+{
+    public Image portrait;
+    public TextMeshProUGUI text;
+
+    public void Setup(Sprite portrait, string message)
+    {
+        this.portrait.sprite = portrait;
+        text.text = message;
+    }
+}
+
 public class GameplayUI : MonoBehaviour
 {
     public Image BadBar;
@@ -19,6 +42,10 @@ public class GameplayUI : MonoBehaviour
     public Image BoatBar;
     public TextMeshProUGUI BoatCount;
 
+    public Animation popupAnim;
+    public List<DialogPopup> popups = new List<DialogPopup>();
+    public List<Sprite> portraits = new List<Sprite>();
+    
     void Update()
     {
         PopulationCount.text = $"World: {Data.player.WorldPopulation.ToString("F0")}/{Data.consts.TargetPopulation.ToString("F0")}";
@@ -33,5 +60,22 @@ public class GameplayUI : MonoBehaviour
 
         BoatBar.fillAmount = Data.player.CurrentBoatCapacity / Data.player.MaxBoatCapacity;
         BoatCount.text = $"{Data.player.CurrentBoatCapacity.ToString("F0")}/{Data.player.MaxBoatCapacity.ToString("F0")}";
+    }
+
+    public void ShowDialog(DialogSide side, DialogPortrait portrait, string message)
+    {
+        switch (side)
+        {
+            case DialogSide.Left:
+                popupAnim.Play("UI_LeftTextPopup");
+                popups[0].Setup(portraits[(int)portrait], message);
+                break;
+            case DialogSide.Right:
+                popupAnim.Play("UI_RightTextPopup");
+                popups[1].Setup(portraits[(int)portrait], message);
+                break;
+            default:
+                break;
+        }
     }
 }

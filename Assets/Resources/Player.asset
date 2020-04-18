@@ -15,8 +15,8 @@ MonoBehaviour:
   Coins: 1000
   WorldPopulation: 100
   DeadShorePopulation: 10
-  HellDoorPopulation: 10
+  HellDoorPopulation: 70
   HellPopulation: 1
-  TargetHellPopulation: 50
+  TargetHellPopulation: 20
   CurrentBoatCapacity: 1
   MaxBoatCapacity: 10
