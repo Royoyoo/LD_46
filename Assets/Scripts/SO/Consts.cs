@@ -8,4 +8,10 @@ public class Consts : ScriptableObject
     public float TargetPopulation;
     public float GoToHellRate;
     public float HellAttackDeathPercent;
+
+    public float RessurectRate;
+    public float CoinsRate;
+
+    public float QuestActiveTime;
+    public float QuestCooldownTime;
 }

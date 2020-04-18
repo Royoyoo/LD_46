@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Quest
+{
+    public string startMessage;
+    public string finishMessage;
+    public float Effect;
+}
+
 [CreateAssetMenu(menuName = "SOs/Player", fileName = "Player")]
 public class Player : ScriptableObject
 {
@@ -16,4 +24,6 @@ public class Player : ScriptableObject
     public float CurrentBoatCapacity;
     public float MaxBoatCapacity;
 
+    public bool gotQuest = false;
+    public Quest currentQuest = null;
 }
