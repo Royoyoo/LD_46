@@ -5,14 +5,12 @@ public class SoulsSpawner : MonoBehaviour
 {
     [Range(0.5f, 5f)]
     public float DesinationAreaRadius = 1;
-
-    public int SoulsCount = 0;
-
+       
     public int MaxVisibleSoulsCount = 50;
 
     public Transform soulDestinationMarker;
 
-    public event Action<int> OnSoulSpawn;
+    //public event Action<int> OnSoulSpawn;
 
     public Soul SoulPrefab;
 
@@ -23,25 +21,41 @@ public class SoulsSpawner : MonoBehaviour
 
     public SoulsContainer souls;
 
+    public bool SpawnFromContainer;
 
     private void Update()
     {
-        currentProgress += Time.deltaTime;
-        if(currentProgress > SpawnDelay)
-        {
-            currentProgress -= SpawnDelay;
-            Spawn();
+        if (SpawnFromContainer)
+        {            
+            if (souls.Remove())
+            {
+                Spawn();               
+            }
         }
+        else
+        {
+            currentProgress += Time.deltaTime;
+            if (currentProgress > SpawnDelay)
+            {
+                currentProgress -= SpawnDelay;
+                var added = souls.Add();
+                if (added)
+                {
+                    Spawn();
+                }
+                //OnSoulSpawn?.Invoke(souls.SoulsCount);
+            }
+        }       
     }
 
     private void Spawn()
     {
-        //Debug.Log("Spawn");
+        Debug.Log("Spawn");
 
-        // TODO: добавлять в контейнер, когда они придут на берег
-        var added = souls.Add();
+        // TODO: добавлять в контейнер, когда они придут к точке назначения
+      
 
-        if (added && souls.NeedVisible)
+        if (souls.NeedVisible)
         {
             var newSoul = Instantiate(SoulPrefab, this.transform);
             newSoul.Active = true;
@@ -51,7 +65,7 @@ public class SoulsSpawner : MonoBehaviour
             newSoul.Destination = soulDestinationMarker.position + randomPoint * DesinationAreaRadius;
         }      
 
-        OnSoulSpawn?.Invoke(SoulsCount);        
+        //OnSoulSpawn?.Invoke(souls.SoulsCount);        
     }
 
     private void OnDrawGizmos()

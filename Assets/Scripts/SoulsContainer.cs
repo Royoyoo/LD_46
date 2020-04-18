@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+
 public class SoulsContainer : MonoBehaviour
 {
     public int SoulsCount = 0;
