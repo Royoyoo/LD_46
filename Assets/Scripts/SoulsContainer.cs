@@ -44,6 +44,18 @@ public class SoulsContainer : MonoBehaviour
         return false;
     }
 
+    public void Remove(int count)
+    {      
+        for (int i = 0; i < count; i++)
+        {
+            if (CanRemove())
+            {
+                SoulsCount--;
+                OnSoulsCountChange?.Invoke(SoulsCount);               
+            }           
+        }       
+    }
+
     public bool CanRemove()
     {
         return SoulsCount > 0;

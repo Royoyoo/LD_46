@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
 
     private Collider collider;
     private Rigidbody rigidBody;
+    
+    //public float MaxSpeed ;
 
     public event Action<float> OnColladedWithObstable;
 
@@ -55,19 +57,23 @@ public class PlayerMove : MonoBehaviour
         float turn = Input.GetAxis("Horizontal");
         var rotation = transform.up  * turn;
         rigidBody.AddTorque(rotation * torque);
+
+        //var currentSpeed = rigidBody.velocity.magnitude;
+        //if (currentSpeed > MaxSpeed)
+        //    MaxSpeed = currentSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log("OnCollisionEnter" + collision.gameObject.name);
 
-        if (collision.gameObject.tag == "obstacle")
-        {
+       // if (collision.gameObject.tag == "obstacle")
+       // {
             //Debug.Log("Speed = " + speed);
             //Debug.Log("OnCollisionEnter + obstacle" + collision.gameObject.name);
-
+           
             var speed = rigidBody.velocity.magnitude;
             OnColladedWithObstable?.Invoke(speed);            
-        }
+       // }
     }
 }
