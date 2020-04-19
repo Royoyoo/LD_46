@@ -71,6 +71,7 @@ public class GameLogic : MonoBehaviour
             {
                 questStartTime = Time.time;
                 activeQuest = allQuests[Random.Range(0, allQuests.Count)];
+                //Debug.Log(activeQuest);
             }
 
             if (Time.time > questStartTime + Data.consts.QuestActiveTime && !Data.player.gotQuest)
@@ -102,6 +103,11 @@ public class GameLogic : MonoBehaviour
             Data.player.CurrentBoatCapacity = Mathf.Max(Data.player.CurrentBoatCapacity - amount, 0f);
             Data.player.Coins += Data.consts.CoinsRate * amount;
         }
+
+        if(Data.player.currentQuest != null)
+        {
+            FinishQuest();           
+        }
     }
     
     public void ShowQuestMessage()
@@ -113,13 +119,14 @@ public class GameLogic : MonoBehaviour
     {
         Data.player.gotQuest = true;
         Data.player.currentQuest = activeQuest;
+        Debug.Log(activeQuest);
     }
 
     public void FinishQuest()
     {
         gameplayUI.ShowQuestMessage(activeQuest.finishMessage);
         Data.player.currentQuest = null;
-        Data.player.gotQuest = true;
+        Data.player.gotQuest = false;
         Debug.Log("QuestFinished");
     }
 

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     //public SoulsContainer boatContainer;
 
     public SoulsContainer InteractionContainer { get; internal set; }
+    public bool CanTakeQuest { get; internal set; }
+
     //public InteractionType InteractionType { get; internal set; }
 
     // int - количество на лодке
@@ -42,12 +44,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log("Input.GetKeyDown(KeyCode.Space)");
+            if (CanTakeQuest)
+            {
+                gameLogic.AcceptQuest();                
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {   
             if (InteractionContainer == null)
             {
-                Debug.Log("InteractionContainer = null!");
                 return;
             }
 

@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-//[RequireComponent(typeof(SphereCollider))]
 public class UpgradeTrigger : MonoBehaviour
 {
     SphereCollider collider;
@@ -29,11 +26,5 @@ public class UpgradeTrigger : MonoBehaviour
 
         player.upgradeUI.Show(false);
         Debug.Log("UpgradeTrigger OnTriggerExit");
-    }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(collider.center, collider.radius);
-    //}
+    }  
 }
