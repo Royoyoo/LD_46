@@ -168,6 +168,6 @@ public class GameLogic : MonoBehaviour
         gameplayUI.DisasterUi.UpdateUI(randomDisaster, killedValue);
 
         // сталактиты
-        ObstableSpawner.Spawn();          
+        StartCoroutine(ObstableSpawner.Spawn());                
     }
 }

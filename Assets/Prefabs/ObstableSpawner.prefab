@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6a669125ca14d44a24591a66d71dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclesSpawnCount: 2
+  obstaclesSpawnCount: 5
   LocationBounds: {x: 14.82, y: 10.88}
-  ObstaclePrefab: {fileID: -9165718631250657785, guid: 495696bab004e034aae50d140289006d,
+  ObstaclePrefab: {fileID: 5791945763207324115, guid: 5c294ec8df7b01541b6030ccbc02d420,
     type: 3}
   TimeOfLife: 20
+  SinkTime: 1
