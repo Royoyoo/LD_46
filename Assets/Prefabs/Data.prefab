@@ -58,19 +58,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018d7093228e64747afcb9749fbb649f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclesSpawnCount: 2
-  LocationBounds: {x: 10, y: 0, z: 10}
-  ObstaclePrefab: {fileID: 7696026449063926389, guid: 495696bab004e034aae50d140289006d,
-    type: 3}
+  ObstableSpawner: {fileID: 0}
   isStarted: 1
   allQuests:
   - startMessage: 111
     finishMessage: 111111
+    Effect: 0
   - startMessage: 222
     finishMessage: 222222
+    Effect: 0
   - startMessage: 333
     finishMessage: 444444
+    Effect: 0
   activeQuest:
     startMessage: 
     finishMessage: 
+    Effect: 0
   questStartTime: 0
