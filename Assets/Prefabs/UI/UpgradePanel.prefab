@@ -58,7 +58,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7679829335247113955}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -210,12 +210,12 @@ PrefabInstance:
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
@@ -350,12 +350,12 @@ PrefabInstance:
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
@@ -490,12 +490,12 @@ PrefabInstance:
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4777392584608175775, guid: c1261db3edaef524e8eed14b9a16dd24,
         type: 3}
