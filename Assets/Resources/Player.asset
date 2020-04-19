@@ -20,6 +20,8 @@ MonoBehaviour:
   TargetHellPopulation: 20
   CurrentBoatCapacity: 1
   MaxBoatCapacity: 10
+  OverboardSpeedThreshold: 0.5
+  OverboardPart: 0.1
   gotQuest: 0
   currentQuest:
     startMessage: 

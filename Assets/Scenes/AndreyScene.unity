@@ -2461,6 +2461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstableSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: SinkTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.x

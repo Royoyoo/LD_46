@@ -180,7 +180,16 @@ public class PlayerController : MonoBehaviour
 
     private void UpgradeUI_OnUpgradeClick(UpgradeData upgrade)
     {
-        Debug.Log("OnUpgradeClick " + upgrade.ToString());
+        // Проверка наличия денег
+        if(Data.player.Coins < upgrade.Price)
+        {
+            Debug.Log("Не хватает денег!");
+            return;
+        }
+
+        Data.player.Coins -= upgrade.Price;
+
+        //Debug.Log("OnUpgradeClick " + upgrade.ToString());
         switch (upgrade.Type)
         {
             case UpgradeType.Speed:
@@ -196,7 +205,7 @@ public class PlayerController : MonoBehaviour
                // boatContainer.MaxSoulsCount += upgrade.Effect;
                 break;
 
-                throw new NotImplementedException("Неизвестный тип улучшения");
+            //Debug.LogError("Неизвестный тип улучшения");
         }
     }      
 }
