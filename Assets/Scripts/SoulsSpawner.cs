@@ -72,7 +72,7 @@ public class SoulsSpawner : MonoBehaviour
 
     void DestroySoul()
     {
-        Debug.LogWarning("DestroySoul Object - Implement this!");
+        //Debug.LogWarning("DestroySoul Object - Implement this!");
     }
 
     private void OnDrawGizmos()

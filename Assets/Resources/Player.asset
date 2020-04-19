@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Coins: 1000
-  WorldPopulation: 61.4125
-  DeadShorePopulation: 209.91986
-  HellDoorPopulation: -0.0050537298
-  HellPopulation: 11.005126
+  WorldPopulation: 100
+  DeadShorePopulation: 10
+  HellDoorPopulation: 70
+  HellPopulation: 1
   TargetHellPopulation: 20
   CurrentBoatCapacity: 1
   MaxBoatCapacity: 10
   OverboardSpeedThreshold: 0.5
   OverboardPart: 0.1
-  gotQuest: 1
+  gotQuest: 0
   currentQuest:
     startMessage: 
     finishMessage: 
