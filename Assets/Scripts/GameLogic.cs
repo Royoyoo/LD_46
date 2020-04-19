@@ -12,6 +12,7 @@ public class GameLogic : MonoBehaviour
 
     public List<Quest> allQuests = new List<Quest>();
     public Quest activeQuest = null;
+    public bool questSet = false;
     public float questStartTime;
 
     [Header("Бедствия")]
@@ -74,6 +75,7 @@ public class GameLogic : MonoBehaviour
             {
                 questStartTime = Time.time;
                 activeQuest = allQuests[Random.Range(0, allQuests.Count)];
+                questSet = true;
                 //Debug.Log(activeQuest);
             }
 
@@ -81,6 +83,7 @@ public class GameLogic : MonoBehaviour
             {
                 questStartTime = Time.time;
                 activeQuest = null;
+                questSet = false;
             }
 
             yield return null;
@@ -115,22 +118,36 @@ public class GameLogic : MonoBehaviour
     
     public void ShowQuestMessage()
     {
-        gameplayUI.ShowQuestMessage(activeQuest.startMessage);
+        if(questSet)
+            gameplayUI.ShowQuestMessage(activeQuest.startMessage);
     }
 
     public void AcceptQuest()
     {
+        if (!questSet)
+            return;
+
         Data.player.gotQuest = true;
         Data.player.currentQuest = activeQuest;
-        Debug.Log(activeQuest);
+
+        gameplayUI.HideQuestMessage();
     }
 
     public void FinishQuest()
     {
         gameplayUI.ShowQuestMessage(activeQuest.finishMessage);
+        Data.player.WorldPopulation += Data.player.currentQuest.Effect;
+
         Data.player.currentQuest = null;
         Data.player.gotQuest = false;
-        Debug.Log("QuestFinished");
+
+        StartCoroutine(HideQuestUI());
+    }
+
+    IEnumerator HideQuestUI()
+    {
+        yield return new WaitForSeconds(3f);
+        gameplayUI.HideQuestMessage();
     }
 
     [ContextMenu("HellAttack")]
