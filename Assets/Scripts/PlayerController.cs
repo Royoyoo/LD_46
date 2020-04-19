@@ -143,13 +143,14 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMove_OnColladedWithObstable(float speed)
     {
-       // Debug.Log("speed = " + speed);
+        Debug.Log("speed = " + speed);
 
-        var speedRatio = speed / playerMove.speed;
-       // Debug.Log("forceOfStrike = " + speedRatio);
+        var speedRatio = speed / Data.player.MaxSpeed;
+        Debug.Log("forceOfStrike = " + speedRatio);
+        Debug.Log("boatContainer.soulsCount = " + boatContainer.soulsCount); 
 
         var fallOverboard = (int) (boatContainer.soulsCount * speedRatio);
-        //Debug.Log("fallOverboard " + fallOverboard);
+        Debug.Log("fallOverboard " + fallOverboard);
 
         if (fallOverboard != 0) 
         {
