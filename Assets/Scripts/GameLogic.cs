@@ -6,7 +6,7 @@ public class GameLogic : MonoBehaviour
 {
     GameplayUI gameplayUI;
       
-    public ObstableSpawner ObstableSpawner;
+    public List<ObstableSpawner> ObstableSpawners;
 
     public bool isStarted = false;
 
@@ -169,6 +169,9 @@ public class GameLogic : MonoBehaviour
         gameplayUI.DisasterUi.UpdateUI(randomDisaster, killedValue);
 
         // сталактиты
-        StartCoroutine(ObstableSpawner.Spawn());                
+        foreach (var spawner in ObstableSpawners)
+        {
+            StartCoroutine(spawner.Spawn());
+        }                  
     }
 }
