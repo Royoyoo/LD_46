@@ -14,6 +14,9 @@ public class GameLogic : MonoBehaviour
     public Quest activeQuest = null;
     public float questStartTime;
 
+    [Header("Бедствия")]
+    public List<DisasterData> Disasters;
+
     void Start()
     {
         gameplayUI = FindObjectOfType<GameplayUI>();
@@ -135,13 +138,19 @@ public class GameLogic : MonoBehaviour
     {
         gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Tanatos, "I'll kill you all!");
 
-        //for (int i = 0; i < obstaclesSpawnCount; i++)
-        //{
-        //    var pos = new Vector3(Random.Range(-LocationBounds.x, LocationBounds.x), 0f, Random.Range(-LocationBounds.z, LocationBounds.z));
-        //    Instantiate(ObstaclePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f));
-        //}
-        ObstableSpawner.Spawn();      
+        // бедствие
+        var randomIndex = Random.Range(0, Disasters.Count);
+        var randomDisaster = Disasters[randomIndex];
 
-        Data.player.WorldPopulation *= (100f - Data.consts.HellAttackDeathPercent) / 100f;
+        var killedValue =(int) (Data.player.WorldPopulation * randomDisaster.MinusSoulsPercent + randomDisaster.MinusSoulsCount);
+        if (killedValue > Data.player.WorldPopulation)
+            killedValue = (int)Data.player.WorldPopulation;
+
+        Data.player.WorldPopulation -= killedValue;//*= (100f - Data.consts.HellAttackDeathPercent) / 100f;
+
+        gameplayUI.DisasterUi.UpdateUI(randomDisaster, killedValue);
+
+        // сталактиты
+        ObstableSpawner.Spawn();          
     }
 }

@@ -46,6 +46,9 @@ public class GameplayUI : MonoBehaviour
     public Animation popupAnim;
     public List<DialogPopup> popups = new List<DialogPopup>();
     public List<Sprite> portraits = new List<Sprite>();
+
+    public UpgradeUI UpgradeUi;
+    public DisasterUI DisasterUi;
     
     void Update()
     {
