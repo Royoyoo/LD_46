@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeUI : MonoBehaviour
@@ -17,16 +16,38 @@ public class UpgradeUI : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            upgrades[0].OnClick();
+            //OnClickUpgrade?.Invoke(upgrades[0].Data);
+            //.OnClickUpgrade(upgrades[0].Data);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            upgrades[1].OnClick();
+           // OnClickUpgrade?.Invoke(upgrades[1].Data);
+            //upgrades[1]?.OnClickUpgrade(upgrades[1].Data);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            upgrades[2].OnClick();
+            //OnClickUpgrade?.Invoke(upgrades[2].Data);
+            //upgrades[2]?.OnClickUpgrade(upgrades[2].Data);
+        }
+    }
+
     //private void OnEnable()
     //{
-        
+
     //}
 
 
     public void Show(bool show)
-    {        
-       gameObject.SetActive(show);      
+    {
+        gameObject.SetActive(show);
     }
 
-  
+
 }

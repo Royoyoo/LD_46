@@ -12,9 +12,9 @@ public class Upgrade : MonoBehaviour
 
     public Action<UpgradeData> OnClickUpgrade;
 
-    public void OnClick(Upgrade upgrade)
-    {
-        OnClickUpgrade?.Invoke(Data);
+    public void OnClick()
+    {       
+        OnClickUpgrade?.Invoke(this.Data);
     }
 
     private void OnValidate()

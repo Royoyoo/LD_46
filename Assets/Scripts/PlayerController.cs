@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
 
         Data.player.Coins -= upgrade.Price;
 
-        //Debug.Log("OnUpgradeClick " + upgrade.ToString());
+        Debug.Log("OnUpgradeClick " + upgrade.ToString());
         switch (upgrade.Type)
         {
             case UpgradeType.Speed:
