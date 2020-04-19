@@ -5,11 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject soulDisplay;
 
-    public int SoulsCount;
-
-    public int BoatCapacity = 50;
-
-    public SoulsContainer boatContainer;
+    //public SoulsContainer boatContainer;
 
     public SoulsContainer InteractionContainer { get; internal set; }
     //public InteractionType InteractionType { get; internal set; }
@@ -25,21 +21,23 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        boatContainer = GetComponent<SoulsContainer>();
+        //boatContainer = GetComponent<SoulsContainer>();
         playerMove = GetComponent<PlayerMove>();
         gameLogic = FindObjectOfType<GameLogic>();
     }
 
     private void OnEnable()
     {
-        boatContainer.OnSoulsCountChange += OnSoulsCountChange;
+        //boatContainer.OnSoulsCountChange += OnSoulsCountChange;
         playerMove.OnColladedWithObstable += PlayerMove_OnColladedWithObstable;
-    }    
+        upgradeUI.OnClickUpgrade += UpgradeUI_OnUpgradeClick;
+    }
 
     private void OnDisable()
     {
-        boatContainer.OnSoulsCountChange -= OnSoulsCountChange;
+       // boatContainer.OnSoulsCountChange -= OnSoulsCountChange;
         playerMove.OnColladedWithObstable -= PlayerMove_OnColladedWithObstable;
+        upgradeUI.OnClickUpgrade -= UpgradeUI_OnUpgradeClick;
     }
 
     private void Update()
@@ -67,7 +65,7 @@ public class PlayerController : MonoBehaviour
                 default:
                     break;
             }
-            
+
             ShowHideSoulDisplay();
 
             //if (InteractionType == InteractionType.Remove)
@@ -87,10 +85,10 @@ public class PlayerController : MonoBehaviour
             if (upgradeUI.gameObject.activeSelf)
                 upgradeUI.Show(false);
             else
-                upgradeUI.Show(true);                
+                upgradeUI.Show(true);
         }
-    }    
-
+    }
+/*
     private void TryRemoveFromShore()
     {
         if (!boatContainer.CanAdd())
@@ -141,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
         OnSoulsCountChange?.Invoke(boatContainer.soulsCount);
     }
-
+    */
     private void ShowHideSoulDisplay()
     {
         soulDisplay.gameObject.SetActive(Data.player.CurrentBoatCapacity > 0.5f);
@@ -156,20 +154,49 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("speed = " + speed);
 
-        var speedRatio = speed / Data.player.MaxSpeed;
-        Debug.Log("forceOfStrike = " + speedRatio);
-        Debug.Log("boatContainer.soulsCount = " + boatContainer.soulsCount); 
+        // количество порогов скорости в текущей скорости       
+        var speedRatio = (int)(speed / Data.player.OverboardSpeedThreshold);
+        Debug.Log("speedRatio = " + speedRatio);
 
-        var fallOverboard = (int) (boatContainer.soulsCount * speedRatio);
+        // какая часть душ вывалится
+        var overboardParts = speedRatio * Data.player.OverboardPart;
+
+        //var fallOverboard = (int)(Data.player.soulsCount * speedRatio);
+        var fallOverboard = (int)(Data.player.CurrentBoatCapacity * overboardParts);
         Debug.Log("fallOverboard " + fallOverboard);
 
-        if (fallOverboard != 0) 
+        if (fallOverboard != 0)
         {
-            boatContainer.Remove(fallOverboard);
-            
+            Data.player.CurrentBoatCapacity -= fallOverboard;
+            if (Data.player.CurrentBoatCapacity < 0)
+                Data.player.CurrentBoatCapacity = 0;
+            //boatContainer.Remove(fallOverboard);
+
             ShowHideSoulDisplay();
 
-            OnSoulsCountChange?.Invoke(boatContainer.soulsCount);
+          //  OnSoulsCountChange?.Invoke(boatContainer.soulsCount);
         }
     }
+
+    private void UpgradeUI_OnUpgradeClick(UpgradeData upgrade)
+    {
+        Debug.Log("OnUpgradeClick " + upgrade.ToString());
+        switch (upgrade.Type)
+        {
+            case UpgradeType.Speed:
+                playerMove.speed += upgrade.Effect;
+                break;
+
+            case UpgradeType.Mobility:
+                playerMove.torque += upgrade.Effect;
+                break;
+
+            case UpgradeType.Capacity:
+                Data.player.MaxBoatCapacity += upgrade.Effect;
+               // boatContainer.MaxSoulsCount += upgrade.Effect;
+                break;
+
+                throw new NotImplementedException("Неизвестный тип улучшения");
+        }
+    }      
 }

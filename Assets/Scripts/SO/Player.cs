@@ -25,12 +25,10 @@ public class Player : ScriptableObject
     public float MaxBoatCapacity;
 
     [Header("Скорость (Для выпадения душ)")]
-    // Устанавливается экспериментальным путем с текущими параметрами лодки    
-    public float MaxSpeed = 1.44f;
-    // TODO
-    public float MaxSpeedUpgr1 = 1;
-    public float MaxSpeedUpgr2 = 1;
-    public float MaxSpeedUpgr3 = 1;
+    // за каждые 0,5 скорости    
+    public float OverboardSpeedThreshold = 0.5f;
+    // выпадает 10% от текущего количества
+    public float OverboardPart = 0.1f;   
 
     public bool gotQuest = false;
     public Quest currentQuest = null;

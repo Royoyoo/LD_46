@@ -2851,6 +2851,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7679829335247113955, guid: 956a5f6aba9a036469ec20a6d9b0c6ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2587999475758091553, guid: 956a5f6aba9a036469ec20a6d9b0c6ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2919,12 +2924,12 @@ PrefabInstance:
     - target: {fileID: 2587999475758091553, guid: 956a5f6aba9a036469ec20a6d9b0c6ad,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2587999475758091553, guid: 956a5f6aba9a036469ec20a6d9b0c6ad,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 2587999475758091553, guid: 956a5f6aba9a036469ec20a6d9b0c6ad,
         type: 3}

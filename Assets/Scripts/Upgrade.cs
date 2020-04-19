@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Upgrade : MonoBehaviour
@@ -8,6 +9,13 @@ public class Upgrade : MonoBehaviour
     public Text EffectText;
 
     public UpgradeData Data;
+
+    public Action<UpgradeData> OnClickUpgrade;
+
+    public void OnClick(Upgrade upgrade)
+    {
+        OnClickUpgrade?.Invoke(Data);
+    }
 
     private void OnValidate()
     {
