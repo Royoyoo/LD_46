@@ -75,10 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DesinationAreaRadius: 1.82
-  SoulsCount: 0
   MaxVisibleSoulsCount: 50
   soulDestinationMarker: {fileID: 144250092}
-  SoulPrefab: {fileID: 3933413777311116928, guid: a2f503e4e0cd15e44bba6190ccaf0386,
+  SoulPrefab: {fileID: -6117197675359890034, guid: e3db5114d90dde049bf1ee1e82bb002d,
     type: 3}
   SpawnDelay: 1
   souls: {fileID: 0}
+  SpawnFromContainer: 0
