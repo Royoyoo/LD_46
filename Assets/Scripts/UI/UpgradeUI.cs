@@ -24,13 +24,15 @@ public class UpgradeUI : MonoBehaviour
             //OnClickUpgrade?.Invoke(upgrades[0].Data);
             //.OnClickUpgrade(upgrades[0].Data);
         }
+        /*
+         TODO: маневренности нету
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             upgrades[1].OnClick();
            // OnClickUpgrade?.Invoke(upgrades[1].Data);
             //upgrades[1]?.OnClickUpgrade(upgrades[1].Data);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        }*/
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             upgrades[2].OnClick();
             //OnClickUpgrade?.Invoke(upgrades[2].Data);
