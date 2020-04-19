@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     GameLogic gameLogic;
 
+    public UpgradeUI upgradeUI;
+
     private void Awake()
     {
         boatContainer = GetComponent<SoulsContainer>();
@@ -77,6 +79,15 @@ public class PlayerController : MonoBehaviour
             //{
             //    TryAddToShore();
             //}
+        }
+
+        // улучшения
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (upgradeUI.gameObject.activeSelf)
+                upgradeUI.Show(false);
+            else
+                upgradeUI.Show(true);                
         }
     }    
 
