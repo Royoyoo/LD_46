@@ -4,7 +4,7 @@ public class QuestTrigger : MonoBehaviour
 {
     SphereCollider collider;
 
-    public Quest Quest;
+    //public Quest Quest;
 
     void Awake()
     {
@@ -18,6 +18,7 @@ public class QuestTrigger : MonoBehaviour
             return;
 
         player.CanTakeQuest = true;
+        FindObjectOfType<GameLogic>().ShowQuestMessage();
 
         //if (Data.player.gotQuest == false)
         //{
@@ -35,6 +36,7 @@ public class QuestTrigger : MonoBehaviour
             return;
 
         player.CanTakeQuest = false;
+        FindObjectOfType<GameplayUI>().HideQuestMessage();
 
         //if (Data.player.gotQuest == false)
         //{ 

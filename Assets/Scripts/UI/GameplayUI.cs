@@ -49,7 +49,11 @@ public class GameplayUI : MonoBehaviour
 
     public UpgradeUI UpgradeUi;
     public DisasterUI DisasterUi;
-    
+
+    public GameObject QuestUI;
+    public TextMeshProUGUI QuestText;
+
+
     void Update()
     {
         PopulationCount.text = $"World: {Data.player.WorldPopulation.ToString("F0")}/{Data.consts.TargetPopulation.ToString("F0")}";
@@ -86,6 +90,12 @@ public class GameplayUI : MonoBehaviour
 
     public void ShowQuestMessage(string message)
     {
-        Debug.Log("ShowQuestMessage");
+        QuestUI.SetActive(true);
+        QuestText.text = message;
+    }
+
+    public void HideQuestMessage()
+    {
+        QuestUI.SetActive(false);
     }
 }
