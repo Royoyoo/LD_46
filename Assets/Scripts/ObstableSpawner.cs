@@ -9,7 +9,10 @@ public class ObstableSpawner : MonoBehaviour
     public Vector2 LocationBounds;
     public SpawnedObstacle ObstaclePrefab;
     [Range(1, 60)]
-    public float TimeOfLife;
+    public float TimeOfLife = 20;
+    // За сколько секунд до смерти начинает тонуть
+    [Range(1, 5)]
+    public float SinkTime = 2 ;
 
     [ContextMenu("Spawn")]
     public void Spawn()
@@ -20,8 +23,10 @@ public class ObstableSpawner : MonoBehaviour
             var y = transform.position.y;
             var randomZ = Random.Range(-LocationBounds.y, LocationBounds.y) + transform.position.z;
             var pos = new Vector3(randomX, y, randomZ);
-
+                       
             var obstacle = Instantiate(ObstaclePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f), this.transform);
+            // уничтожаем коллайдер, чтобы объект стал проваливаться под землю/тонуть
+            Destroy(obstacle.collider, TimeOfLife - SinkTime);
             Destroy(obstacle.gameObject, TimeOfLife);
         }
     }

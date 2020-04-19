@@ -2,14 +2,14 @@
 
 public class SpawnedObstacle : MonoBehaviour
 {
-    BoxCollider collider;
+    public BoxCollider collider;
 
     bool colliderChanged = false;
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider>();
-    }
+    }       
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -31,5 +31,5 @@ public class SpawnedObstacle : MonoBehaviour
             // но только 1 раз
             colliderChanged = true;
         }
-    }
+    }    
 }
