@@ -12,6 +12,6 @@ public class DisasterData : ScriptableObject
     public float MinusSoulsPercent;
 
     [Header("Затем вычитание этого числа")] 
-    [Range(1f, 500f)]
+    [Range(0f, 500f)]
     public int MinusSoulsCount;  
 }

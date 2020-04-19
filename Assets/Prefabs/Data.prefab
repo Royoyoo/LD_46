@@ -75,3 +75,8 @@ MonoBehaviour:
     finishMessage: 
     Effect: 0
   questStartTime: 0
+  Disasters:
+  - {fileID: 11400000, guid: 25622555417583d4d8d807a1081f5f3c, type: 2}
+  - {fileID: 11400000, guid: 835b9f8b02ef26c4eb704337852a9569, type: 2}
+  - {fileID: 11400000, guid: ea95949ce54fff64a9a29ab190f3ad02, type: 2}
+  - {fileID: 11400000, guid: 8deac95f6c5a3b140b9877e4c4f59503, type: 2}
