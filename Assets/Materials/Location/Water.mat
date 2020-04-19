@@ -71,7 +71,7 @@ Material:
     - _DstBlend: 0
     - _Float0: 0.2
     - _Foam: 0.12
-    - _Gloss: 1
+    - _Gloss: 0.464
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -84,7 +84,7 @@ Material:
     - _Parallax: 0.02
     - _SinSpeed: 2
     - _SmoothnessTextureChannel: 0
-    - _Spec: 0.1
+    - _Spec: 0.859
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

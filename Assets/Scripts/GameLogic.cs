@@ -81,7 +81,7 @@ public class GameLogic : MonoBehaviour
 
             if (Time.time > questStartTime + Data.consts.QuestActiveTime && !Data.player.gotQuest)
             {
-                questStartTime = Time.time;
+                //questStartTime = Time.time;
                 activeQuest = null;
                 questSet = false;
             }
@@ -110,7 +110,7 @@ public class GameLogic : MonoBehaviour
             Data.player.Coins += Data.consts.CoinsRate * amount;
         }
 
-        if(Data.player.currentQuest != null)
+        if(Data.player.gotQuest)
         {
             FinishQuest();           
         }
@@ -128,6 +128,7 @@ public class GameLogic : MonoBehaviour
             return;
 
         Data.player.gotQuest = true;
+        questSet = false;
         Data.player.currentQuest = activeQuest;
 
         gameplayUI.HideQuestMessage();

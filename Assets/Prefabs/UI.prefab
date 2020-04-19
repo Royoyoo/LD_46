@@ -1485,8 +1485,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4b2821182d1937840b425ab3b10555ec, type: 3}
   - {fileID: 21300000, guid: b223ee66ad6b9d64e983b39680c6e0a1, type: 3}
   - {fileID: 21300000, guid: 49b529e364ecd064fae5581373c6881f, type: 3}
-  UpgradeUi: {fileID: 0}
-  DisasterUi: {fileID: 0}
+  UpgradeUi: {fileID: 8141487967204301490}
+  DisasterUi: {fileID: 6386488087432813812}
   QuestUI: {fileID: 9005887794502110187}
   QuestText: {fileID: 4251165471994945852}
 --- !u!1 &8471505660308928464
@@ -4062,3 +4062,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 9184649266298847672}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8141487967204301490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1119722798376278794, guid: 956a5f6aba9a036469ec20a6d9b0c6ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 9184649266298847672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c4eb825da8a4342b3f398082731789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
