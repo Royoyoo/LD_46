@@ -1372,9 +1372,7 @@ PrefabInstance:
     - target: {fileID: 3730100878535152070, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_Text
-      value: 'Speed
-
-        +10'
+      value: Speed+10
       objectReference: {fileID: 0}
     - target: {fileID: 3730100878535152071, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
@@ -1414,9 +1412,7 @@ PrefabInstance:
     - target: {fileID: 8003239447598659740, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_Text
-      value: 'Mobility
-
-        +5'
+      value: Mobility+5
       objectReference: {fileID: 0}
     - target: {fileID: 8003239447598659741, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
@@ -1476,7 +1472,7 @@ PrefabInstance:
     - target: {fileID: 6346006134661601802, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6346006134411547981, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
@@ -1771,12 +1767,12 @@ PrefabInstance:
     - target: {fileID: 4929795353667168266, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4929795353667168266, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4929795353667168266, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
@@ -1796,9 +1792,12 @@ PrefabInstance:
     - target: {fileID: 4929795353667168266, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_text
-      value: 'Press
-
-        2'
+      value: Press 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929795353667168266, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8316631092673464989, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
@@ -1833,22 +1832,22 @@ PrefabInstance:
     - target: {fileID: 1781433012031111504, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1781433012031111504, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1781433012031111504, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1781433012031111504, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1781433012031111504, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
@@ -1858,9 +1857,12 @@ PrefabInstance:
     - target: {fileID: 1781433012031111504, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_text
-      value: 'Press
-
-        3'
+      value: Press 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781433012031111504, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51184b4d627f2194b8d6db6d5ffa1a24, type: 3}

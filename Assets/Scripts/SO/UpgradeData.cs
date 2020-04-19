@@ -23,6 +23,6 @@ public class UpgradeData : ScriptableObject
 
     public override string ToString()
     {
-        return $"{Type}\n+{Effect}";
+        return $"{Type}+{Effect}";
     }
 }
