@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum DialogSide
 {
@@ -53,6 +54,8 @@ public class GameplayUI : MonoBehaviour
     public GameObject QuestUI;
     public TextMeshProUGUI QuestText;
 
+    public GameObject WinUI;
+    public GameObject LoseUI;
 
     void Update()
     {
@@ -97,5 +100,22 @@ public class GameplayUI : MonoBehaviour
     public void HideQuestMessage()
     {
         QuestUI.SetActive(false);
+    }
+
+    public void ShowWinUI()
+    {
+        WinUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ShowLoseUI()
+    {
+        LoseUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

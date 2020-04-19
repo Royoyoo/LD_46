@@ -71,7 +71,7 @@ Material:
     - _DstBlend: 0
     - _Float0: 0.2
     - _Foam: 0.12
-    - _Gloss: 0.464
+    - _Gloss: 0.045
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -79,16 +79,16 @@ Material:
     - _Mode: 0
     - _NormalMult: 1
     - _NormalMult1: 0.2
-    - _Normals: 0.779
+    - _Normals: 0.346
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SinSpeed: 2
     - _SmoothnessTextureChannel: 0
-    - _Spec: 0.859
+    - _Spec: 0.457
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveSpeed: 0.12
+    - _WaveSpeed: 0.2
     - _WaveSpeed1: 0.6919433
     - _ZWrite: 1
     - __dirty: 0

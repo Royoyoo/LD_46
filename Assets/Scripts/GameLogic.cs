@@ -20,6 +20,7 @@ public class GameLogic : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         gameplayUI = FindObjectOfType<GameplayUI>();
         StartCoroutine(GameProgress());
     }
@@ -40,6 +41,7 @@ public class GameLogic : MonoBehaviour
 
         StartCoroutine(HellProcess());
         StartCoroutine(QuestProcess());
+        StartCoroutine(WinLoseProcess());
     }
 
     IEnumerator HellProcess()
@@ -84,6 +86,28 @@ public class GameLogic : MonoBehaviour
                 //questStartTime = Time.time;
                 activeQuest = null;
                 questSet = false;
+            }
+
+            yield return null;
+        }
+    }
+
+    IEnumerator WinLoseProcess()
+    {
+        while (true)
+        {
+            if (Data.player.WorldPopulation <= 0)
+            {
+                gameplayUI.ShowLoseUI();
+                yield return null;
+                continue;
+            }
+
+            if (Data.player.WorldPopulation >= Data.consts.TargetPopulation)
+            {
+                gameplayUI.ShowWinUI();
+                yield return null;
+                continue;
             }
 
             yield return null;
