@@ -79,14 +79,17 @@ Material:
     - _Mode: 0
     - _NormalMult: 1
     - _NormalMult1: 0.2
+    - _Normals: 0.779
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SinSpeed: 2
     - _SmoothnessTextureChannel: 0
-    - _Spec: 0.75
+    - _Spec: 0.1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WaveSpeed: 0.12
+    - _WaveSpeed1: 0.6919433
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
