@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     GameLogic gameLogic;
 
-    public UpgradeUI upgradeUI;
+    public UpgradeUI upgradeUI;   
 
     private void Awake()
     {
@@ -79,14 +79,16 @@ public class PlayerController : MonoBehaviour
             //}
         }
 
-        // улучшения
-        if (Input.GetKeyDown(KeyCode.F))
+        // улучшения показываются из UpgradeTrigger
+       /* if (Input.GetKeyDown(KeyCode.F))
         {
+          
+
             if (upgradeUI.gameObject.activeSelf)
                 upgradeUI.Show(false);
             else
                 upgradeUI.Show(true);
-        }
+        }*/
     }
 /*
     private void TryRemoveFromShore()
