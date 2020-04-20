@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     // int - количество на лодке
     public event Action<float> OnSoulsCountChange;
 
-    private PlayerMove playerMove;
+    public PlayerMove playerMove;
 
     GameLogic gameLogic;
 
@@ -34,14 +34,14 @@ public class PlayerController : MonoBehaviour
     {
         //boatContainer.OnSoulsCountChange += OnSoulsCountChange;
         playerMove.OnColladedWithObstable += PlayerMove_OnColladedWithObstable;
-        upgradeUI.OnClickUpgrade += UpgradeUI_OnUpgradeClick;
+       // upgradeUI.OnClickUpgrade += UpgradeUI_OnUpgradeClick;
     }
 
     private void OnDisable()
     {
        // boatContainer.OnSoulsCountChange -= OnSoulsCountChange;
         playerMove.OnColladedWithObstable -= PlayerMove_OnColladedWithObstable;
-        upgradeUI.OnClickUpgrade -= UpgradeUI_OnUpgradeClick;
+       // upgradeUI.OnClickUpgrade -= UpgradeUI_OnUpgradeClick;
     }
 
    

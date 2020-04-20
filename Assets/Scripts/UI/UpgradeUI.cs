@@ -4,15 +4,16 @@ using UnityEngine;
 public class UpgradeUI : MonoBehaviour
 {
     Upgrade[] upgrades;
-
-    public Action<UpgradeData> OnClickUpgrade;
+       
+    public PlayerController Player;
 
     private void Awake()
     {
         upgrades = GetComponentsInChildren<Upgrade>(true);
+       
         foreach (var item in upgrades)
         {
-            item.OnClickUpgrade += (data) => OnClickUpgrade(data);
+            item.Player = Player;          
         }
     }
 
