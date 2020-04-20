@@ -16,6 +16,11 @@ public class Upgrade : MonoBehaviour
 
     public PlayerController Player;
 
+    public void Awake()
+    {
+        upgrade.Price = upgrade.StartPrice;
+    }
+
     public void OnClick()
     {
         // Проверка наличия денег
@@ -27,11 +32,16 @@ public class Upgrade : MonoBehaviour
 
         Data.player.Coins -= upgrade.Price;
 
+        //повышаем цену улучшения
+        upgrade.Price = (int) (upgrade.Price * Data.consts.UpgradeUpcost);
+        PriceText.text = upgrade.Price.ToString();
+
         Debug.Log("OnUpgradeClick " + upgrade.ToString());
         switch (upgrade.Type)
         {
             case UpgradeType.Speed:
                 Player.playerMove.speed += upgrade.Effect;
+                Player.playerMove.torque += upgrade.Effect/2;
                 break;
 
             case UpgradeType.Mobility:
@@ -44,7 +54,38 @@ public class Upgrade : MonoBehaviour
                 break;
 
                 //Debug.LogError("Неизвестный тип улучшения");
-        }     
+        }
+
+        if (upgrade.NegativeEffect == 0)
+            return;    
+
+        switch (upgrade.NegativeType)
+        {
+            case UpgradeType.Speed:
+                if (Player.playerMove.speed - upgrade.NegativeEffect < Player.MinSpeed)
+                {
+                    break;
+                }
+                Player.playerMove.speed -= upgrade.NegativeEffect;
+                Player.playerMove.torque -= upgrade.NegativeEffect / 2;               
+                break;
+
+            case UpgradeType.Mobility:
+                Player.playerMove.torque -= upgrade.NegativeEffect;
+                break;
+
+            case UpgradeType.Capacity:
+                Data.player.MaxBoatCapacity -= upgrade.NegativeEffect;
+                // boatContainer.MaxSoulsCount += upgrade.Effect;
+                break;
+
+                //Debug.LogError("Неизвестный тип улучшения");
+        }
+    }
+
+    internal void Refresh()
+    {
+        PriceText.text = upgrade.Price.ToString();       
     }
 
     private void OnValidate()

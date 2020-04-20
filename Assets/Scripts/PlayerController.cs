@@ -23,11 +23,15 @@ public class PlayerController : MonoBehaviour
 
     public SoulsParticle particle;
 
+    public float MinSpeed;
+
     private void Awake()
     {
         //boatContainer = GetComponent<SoulsContainer>();
         playerMove = GetComponent<PlayerMove>();
         gameLogic = FindObjectOfType<GameLogic>();
+        //MinSpeed = playerMove.speed / 2;
+        //Debug.Log("MinSpeed " + MinSpeed);
     }
 
     private void OnEnable()

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Effect: 10
-  Price: 15
+  Price: 30
+  StartPrice: 30
   Icon: {fileID: -3797168219154286171, guid: 9d178294ff793ad4a9aa44e0a5c04600, type: 3}
+  NegativeType: 0
+  NegativeEffect: 5
