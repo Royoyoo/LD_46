@@ -15,7 +15,7 @@ MonoBehaviour:
   StartDelay: 4
   TargetPopulation: 1000
   SoulsFromPopulationRate: 0.005
-  SoulsDeadShoreSpeed: 1
+  SoulsDeadShoreSpeed: 1.25
   HellDeliveryCount: 30
   HellDeliveryTimeout: 30
   GoToHellRate: 1

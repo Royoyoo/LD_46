@@ -176,7 +176,10 @@ public class GameLogic : MonoBehaviour
 
     public void CollectSouls(ISoulsSource source)
     {
-        if(source.SoulsCount > 0 && Data.player.CurrentBoatCapacity < Data.player.MaxBoatCapacity)
+        if (source.SoulsCount < 1)
+            return;
+
+        if(Data.player.CurrentBoatCapacity < Data.player.MaxBoatCapacity)
         {
             var collectedAmount = source.CollectSpeed * Time.deltaTime;
             source.SoulsCount = Mathf.Max(source.SoulsCount - collectedAmount, 0f);
