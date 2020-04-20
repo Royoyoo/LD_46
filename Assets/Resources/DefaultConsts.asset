@@ -15,7 +15,7 @@ MonoBehaviour:
   StartDelay: 4
   TargetPopulation: 1000
   SoulsFromPopulationRate: 0.005
-  SoulsDeadShoreSpeed: 1.25
+  SoulsDeadShoreSpeed: 2
   HellDeliveryCount: 30
   HellDeliveryTimeout: 30
   GoToHellRate: 1
@@ -24,4 +24,4 @@ MonoBehaviour:
   CoinsRate: 2
   QuestActiveTime: 23
   QuestCooldownTime: 7
-  UpgradeUpcost: 1.1
+  UpgradeUpcost: 1.5
