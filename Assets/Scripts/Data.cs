@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Data : MonoBehaviour
 {
+    public Player DefaultPlayer;
+
     public Player PlayerSO;
     public Consts ConstsSO;
 
@@ -43,6 +45,7 @@ public class Data : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            player = Instantiate(DefaultPlayer);
         }
         else
         {

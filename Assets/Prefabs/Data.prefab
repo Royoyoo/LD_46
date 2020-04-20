@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bd8716b19d87244b70fc01b27dcd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultPlayer: {fileID: 11400000, guid: 0ca69a17db9a1fa428e3e09d68da873e, type: 2}
   PlayerSO: {fileID: 11400000, guid: f7e56673bed9e9f43a0ac6b0231af637, type: 2}
   ConstsSO: {fileID: 11400000, guid: 30257791c191c7f4e95ebcb170047de2, type: 2}
 --- !u!114 &6162057628555199830
@@ -58,7 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018d7093228e64747afcb9749fbb649f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstableSpawner: {fileID: 0}
+  ObstableSpawners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isStarted: 1
   allQuests:
   - startMessage: "\u042F \u0441\u043F\u0430\u0440\u0442\u0430\u043D\u0441\u043A\u0438\u0439
@@ -101,10 +108,19 @@ MonoBehaviour:
       \u0410 \u0432\u043E\u0442 \u0443\u0431\u0438\u0432\u0430\u0442\u044C \u044F
       \u043B\u044E\u0431\u043B\u044E!"
     Effect: -100
+  activeQuest:
+    startMessage: 
+    finishMessage: 
+    Effect: 0
   questSet: 0
   questStartTime: 0
+  DeadShoreContainer: {fileID: 0}
   Disasters:
   - {fileID: 11400000, guid: 25622555417583d4d8d807a1081f5f3c, type: 2}
+  - {fileID: 11400000, guid: 77f46a82f6bd2a84cad44cdc916743b4, type: 2}
   - {fileID: 11400000, guid: 835b9f8b02ef26c4eb704337852a9569, type: 2}
+  - {fileID: 11400000, guid: 3c5bdfb9723fd494aa169a9f6856c41d, type: 2}
   - {fileID: 11400000, guid: ea95949ce54fff64a9a29ab190f3ad02, type: 2}
   - {fileID: 11400000, guid: 8deac95f6c5a3b140b9877e4c4f59503, type: 2}
+  openingAnim: {fileID: 0}
+  helpScreen: {fileID: 0}
