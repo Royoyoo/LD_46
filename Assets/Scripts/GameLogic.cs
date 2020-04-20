@@ -16,7 +16,7 @@ public class GameLogic : MonoBehaviour
     public float questStartTime;
 
     public SoulsContainer DeadShoreContainer;
-
+      
     [Header("Бедствия")]
     public List<DisasterData> Disasters;
 
@@ -34,7 +34,7 @@ public class GameLogic : MonoBehaviour
             yield return null;
         }
 
-        var textDelay = new WaitForSeconds(4f);
+        var textDelay = new WaitForSeconds(Data.consts.StartDelay);
 
         gameplayUI.ShowDialog(DialogSide.Left, DialogPortrait.Haron, "Let's start.");
         yield return textDelay;
@@ -149,11 +149,12 @@ public class GameLogic : MonoBehaviour
         }
     }
 
-    public void RessurectSouls()
+    public float RessurectSouls()
     {
+        var amount = 0f;
         if (Data.player.CurrentBoatCapacity > 0)
         {
-            var amount = Data.consts.RessurectRate * Time.deltaTime;
+            amount = Data.consts.RessurectRate * Time.deltaTime;
             Data.player.WorldPopulation += amount;
             Data.player.CurrentBoatCapacity = Mathf.Max(Data.player.CurrentBoatCapacity - amount, 0f);
             Data.player.Coins += Data.consts.CoinsRate * amount;
@@ -163,8 +164,30 @@ public class GameLogic : MonoBehaviour
         {
             FinishQuest();           
         }
+
+        return amount;
     }
-    
+
+    public float RessurectSouls(ISoulsSource source)
+    {
+        var amount = 0f;
+        if (Data.player.CurrentBoatCapacity > 0)
+        {
+            // TODO CollectSpeed не зависит от контейнера
+            amount = /*Data.consts.RessurectRate*/source.CollectSpeed * Time.deltaTime;
+            Data.player.WorldPopulation += amount;
+            Data.player.CurrentBoatCapacity = Mathf.Max(Data.player.CurrentBoatCapacity - amount, 0f);
+            Data.player.Coins += Data.consts.CoinsRate * amount;
+        }
+
+        if (Data.player.gotQuest)
+        {
+            FinishQuest();
+        }
+
+        return amount;
+    }
+
     public void ShowQuestMessage()
     {
         if(questSet)
@@ -225,9 +248,9 @@ public class GameLogic : MonoBehaviour
         gameplayUI.DisasterUi.UpdateUI(randomDisaster, killedValue);
 
         // сталактиты
-        foreach (var spawner in ObstableSpawners)
-        {
-            StartCoroutine(spawner.Spawn());
-        }                  
+        //foreach (var spawner in ObstableSpawners)
+        //{
+        //    StartCoroutine(spawner.Spawn());
+        //}                  
     }
 }

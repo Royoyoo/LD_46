@@ -18,10 +18,12 @@ public class Player : ScriptableObject
     [Header("Души на берегу")]
     public float DeadShorePopulation;
     public float HellDoorPopulation;
-
+        
     public float HellPopulation;
     public float TargetHellPopulation;
 
+    [Header("Время загрузки/выгрузки лодки")]
+    public float LoadTime = 1.5f;
     public float CurrentBoatCapacity;
     public float MaxBoatCapacity;
 

@@ -63,8 +63,15 @@ public class PlayerMove : MonoBehaviour
         // сила поднимающая вверх
         if (transform.localPosition.y < MaxDeep)
         {
-            Debug.Log("Pop up!");
+           // Debug.Log("Pop up!");
             rigidBody.AddForce(Vector3.up * PopupPower, ForceMode.Force);
+        }
+
+        // сила притягивающая к воде
+        if (transform.localPosition.y > 1f)
+        {
+            // Debug.Log("Pop up!");
+            rigidBody.AddForce(Vector3.down * PopupPower * 0.5f, ForceMode.Force);
         }
         //var currentSpeed = rigidBody.velocity.magnitude;
         //if (currentSpeed > MaxSpeed)

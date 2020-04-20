@@ -1,13 +1,7 @@
 ﻿using UnityEngine;
 
 public class UpgradeTrigger : MonoBehaviour
-{
-    SphereCollider collider;
-    void Awake()
-    {
-        collider = GetComponent<SphereCollider>();
-    }
-
+{ 
     private void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<PlayerController>();

@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour
 
     GameLogic gameLogic;
 
-    public UpgradeUI upgradeUI;   
+    public UpgradeUI upgradeUI;
+
+    public SoulsParticle particle;
 
     private void Awake()
     {
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
         upgradeUI.OnClickUpgrade -= UpgradeUI_OnUpgradeClick;
     }
 
+   
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -68,7 +72,13 @@ public class PlayerController : MonoBehaviour
                     gameLogic.CollectSouls(InteractionContainer);
                     break;
                 case ContainerType.Resurrection:
-                    gameLogic.RessurectSouls();
+                    var resurrected = gameLogic.RessurectSouls(InteractionContainer);
+                    InteractionContainer.NeedDissolve(resurrected);// += resurrected;
+                   // InteractionContainer.SoulsCount += resurrected;
+
+                    // var resValue = Math.Max(1, (int)resurrected);
+                    //// Debug.Log(Math.Max(1, (int)resurrected));
+                   // InteractionContainer.Dissolve((int)Data.player.CurrentBoatCapacity);
                     break;
                 default:
                     break;
@@ -174,9 +184,11 @@ public class PlayerController : MonoBehaviour
         //var fallOverboard = (int)(Data.player.soulsCount * speedRatio);
         var fallOverboard = (int)(Data.player.CurrentBoatCapacity * overboardParts);
         Debug.Log("fallOverboard " + fallOverboard);
-
+               
         if (fallOverboard != 0)
         {
+            particle.Emit(fallOverboard);
+
             Data.player.CurrentBoatCapacity -= fallOverboard;
             if (Data.player.CurrentBoatCapacity < 0)
                 Data.player.CurrentBoatCapacity = 0;

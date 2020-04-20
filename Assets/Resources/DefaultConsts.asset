@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046bb0bc337380c4fbfe4c1a0686cc5f, type: 3}
   m_Name: DefaultConsts
   m_EditorClassIdentifier: 
+  StartDelay: 4
   TargetPopulation: 1000
   SoulsFromPopulationRate: 0.005
   SoulsDeadShoreSpeed: 1

@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SOs/Consts", fileName = "Consts")]
 public class Consts : ScriptableObject
 {
+    public float StartDelay = 4f;
+
     public float TargetPopulation;
     [Header("Not used")]
     public float SoulsFromPopulationRate;

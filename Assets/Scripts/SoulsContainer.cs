@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public enum ContainerType
@@ -14,7 +15,7 @@ public class SoulsContainer : MonoBehaviour, ISoulsSource
     public ContainerType Type;
     public float soulsCount = 0;
     public float collectSpeed = 2;
-
+   
     [Range(-1, 10000)]
     public int MaxSoulsCount = 50;
 
@@ -22,6 +23,7 @@ public class SoulsContainer : MonoBehaviour, ISoulsSource
 
     public bool NeedVisible => soulsCount < MaxVisibleSoulsCount;
 
+    public SoulsDissolver dissolver;
     public float SoulsCount
     {
         get => soulsCount;
@@ -35,8 +37,8 @@ public class SoulsContainer : MonoBehaviour, ISoulsSource
                 case ContainerType.Aid:
                     Data.player.HellDoorPopulation = value;
                     break;
-                case ContainerType.Resurrection:
-                    break;
+                case ContainerType.Resurrection:                   
+                    break;           
                 case ContainerType.Charon:
                     break;
                 default:
@@ -46,7 +48,7 @@ public class SoulsContainer : MonoBehaviour, ISoulsSource
         }
     }
 
-    public float CollectSpeed { get => collectSpeed; set => collectSpeed = value; }
+    public float CollectSpeed { get => Data.player.MaxBoatCapacity / Data.player.LoadTime ; set => collectSpeed = value; }
 
     public event Action<float> OnSoulsCountChange;
 
@@ -82,6 +84,14 @@ public class SoulsContainer : MonoBehaviour, ISoulsSource
         return false;
     }
 
+    internal void NeedDissolve(float resurrected)
+    {
+       if(dissolver != null)
+        {
+            dissolver.NeedDissolve += resurrected;
+        }
+    }
+
     public bool CanAdd()
     {
         return MaxSoulsCount == -1 || soulsCount < MaxSoulsCount;
@@ -99,19 +109,19 @@ public class SoulsContainer : MonoBehaviour, ISoulsSource
     }
 
     public void Remove(int count)
-    {      
+    {
         for (int i = 0; i < count; i++)
         {
             if (CanRemove())
             {
                 soulsCount--;
-                OnSoulsCountChange?.Invoke(soulsCount);               
-            }           
-        }       
+                OnSoulsCountChange?.Invoke(soulsCount);
+            }
+        }
     }
 
     public bool CanRemove()
     {
         return soulsCount > 0;
-    }
+    }   
 }

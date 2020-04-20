@@ -37,6 +37,27 @@ public class ObstableSpawner : MonoBehaviour
         }
     }
 
+    public void Spawn2()
+    {
+        for (int i = 0; i < obstaclesSpawnCount; i++)
+        {
+            var randomX = Random.Range(-LocationBounds.x, LocationBounds.x) + transform.position.x;
+            var y = transform.position.y + Random.Range(0, 5f);
+            var randomZ = Random.Range(-LocationBounds.y, LocationBounds.y) + transform.position.z;
+            var pos = new Vector3(randomX, y, randomZ);
+
+            var obstacle = Instantiate(ObstaclePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f), this.transform);
+
+            var newScale = obstacle.transform.localScale;
+            newScale.x *= Random.Range(0.9f, 1.3f);
+            newScale.z *= Random.Range(0.9f, 1.3f);
+            obstacle.transform.localScale = newScale;
+            // уничтожаем коллайдер, чтобы объект стал проваливаться под землю/тонуть
+            Destroy(obstacle.collider, TimeOfLife - SinkTime);
+            Destroy(obstacle.gameObject, TimeOfLife);
+        }
+    }
+
     [ContextMenu("Spawn")]
     public void SpawnTest()
     {
