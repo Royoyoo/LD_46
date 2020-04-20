@@ -24,6 +24,8 @@ public class GameLogic : MonoBehaviour
     public GameObject helpScreen;
     int openingStep = 0;
 
+    public SoulsContainer LiveShoreContainer;
+
     void Start()
     {
         isStarted = false;
@@ -107,7 +109,7 @@ public class GameLogic : MonoBehaviour
         while (true)
         {
             var bonus = Data.consts.HellDeliveryCount * deliveryTimes / 2f;
-          //  Debug.Log("Bonus " + bonus);
+            //Debug.Log("Bonus " + bonus);
             var deliveryCount = Data.consts.HellDeliveryCount + (bonus);
             if (deliveryCount > Data.player.DeadShorePopulation)
             {
@@ -115,11 +117,11 @@ public class GameLogic : MonoBehaviour
             }
 
             // перенос душ с берега к вратам ада
-            Data.player.DeadShorePopulation -= deliveryCount;
+            LiveShoreContainer.SoulsCount -= deliveryCount;
             Data.player.HellDoorPopulation += deliveryCount;
             deliveryTimes++;
 
-        //    Debug.Log("HellDelivery + " + deliveryCount);
+            //Debug.Log("HellDelivery + " + deliveryCount);
 
             yield return new WaitForSeconds(Data.consts.HellDeliveryTimeout);
         }
