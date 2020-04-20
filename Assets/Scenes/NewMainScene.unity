@@ -10383,6 +10383,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5671231661511838554, guid: 57f5ee5443480d44dae711721cbd8b25,
+        type: 3}
+      propertyPath: upgradeUI
+      value: 
+      objectReference: {fileID: 1764023965}
     - target: {fileID: 5737224055963039010, guid: 57f5ee5443480d44dae711721cbd8b25,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -13413,6 +13418,18 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &2015634774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5348103034844336881, guid: 1b3036f4deff60f42b64a48df31d5294,
+    type: 3}
+  m_PrefabInstance: {fileID: 1035562365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18693150a441abd4fbc5b409ab73c3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029943692
 GameObject:
   m_ObjectHideFlags: 0
@@ -23373,6 +23390,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8141487967204301490, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2015634774}
     - target: {fileID: 8471505661511826354, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_Name

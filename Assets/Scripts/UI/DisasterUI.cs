@@ -26,7 +26,7 @@ public class DisasterUI : MonoBehaviour
         if (disaster.Icon != null)
             DisasterImage.sprite = disaster.Icon;
 
-        DisasterResultText.text = $"After {disaster.Name} were killed {result} people.";
+        DisasterResultText.text = $"After {disaster.Name} {result} people were killed.";
             //$"{Disaster.Name}. -{100}";
     }
 

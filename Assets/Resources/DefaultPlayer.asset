@@ -17,7 +17,7 @@ MonoBehaviour:
   DeadShorePopulation: 10
   HellDoorPopulation: 70
   HellPopulation: 1
-  TargetHellPopulation: 20
+  TargetHellPopulation: 50
   LoadTime: 1.5
   CurrentBoatCapacity: 0
   MaxBoatCapacity: 10

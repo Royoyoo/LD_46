@@ -59,6 +59,7 @@ public class GameLogic : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         openingAnim.gameObject.SetActive(false);
+        gameplayUI.gameObject.SetActive(true);
         helpScreen.SetActive(true);
 
         while (!isStarted)
@@ -69,7 +70,6 @@ public class GameLogic : MonoBehaviour
         }
 
         helpScreen.SetActive(false);
-        gameplayUI.gameObject.SetActive(true);
 
         StartCoroutine(HellDelivery());
         StartCoroutine(HellProcess());
