@@ -13,7 +13,9 @@ public class UpgradeUI : MonoBehaviour
        
         foreach (var item in upgrades)
         {
-            item.Player = Player;          
+            item.Player = Player;
+          
+            item.Refresh();
         }
     }
 

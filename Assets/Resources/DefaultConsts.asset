@@ -24,3 +24,4 @@ MonoBehaviour:
   CoinsRate: 2
   QuestActiveTime: 23
   QuestCooldownTime: 7
+  UpgradeUpcost: 1.1

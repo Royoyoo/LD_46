@@ -8,9 +8,6 @@ public enum UpgradeType
     Capacity
 }
 
-
-
-
 [CreateAssetMenu(menuName = "SOs/UpgradeData", fileName = "UpgradeData")]
 public class UpgradeData : ScriptableObject
 {
@@ -19,7 +16,14 @@ public class UpgradeData : ScriptableObject
 
     public int Price;
 
+    public int StartPrice;
+
     public Sprite Icon;
+
+    [Space]
+    [Header("Негативный эффект")]
+    public UpgradeType NegativeType;
+    public int NegativeEffect;
 
     public override string ToString()
     {

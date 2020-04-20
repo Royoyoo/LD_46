@@ -27,4 +27,8 @@ public class Consts : ScriptableObject
 
     public float QuestActiveTime;
     public float QuestCooldownTime;
+
+    [Header("Удорожание улучшений")]
+    [Range(1f, 3f)]
+    public float UpgradeUpcost;
 }
