@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Upgrade : MonoBehaviour
@@ -8,25 +9,54 @@ public class Upgrade : MonoBehaviour
     public Text PriceText;
     public Text EffectText;
 
-    public UpgradeData Data;
+    [FormerlySerializedAs("Data")]
+    public UpgradeData upgrade;
 
     public Action<UpgradeData> OnClickUpgrade;
 
+    public PlayerController Player;
+
     public void OnClick()
-    {       
-        OnClickUpgrade?.Invoke(this.Data);
+    {
+        // Проверка наличия денег
+        if (Data.player.Coins < upgrade.Price)
+        {
+            Debug.Log("Не хватает денег!");
+            return;
+        }
+
+        Data.player.Coins -= upgrade.Price;
+
+        Debug.Log("OnUpgradeClick " + upgrade.ToString());
+        switch (upgrade.Type)
+        {
+            case UpgradeType.Speed:
+                Player.playerMove.speed += upgrade.Effect;
+                break;
+
+            case UpgradeType.Mobility:
+                Player.playerMove.torque += upgrade.Effect;
+                break;
+
+            case UpgradeType.Capacity:
+                Data.player.MaxBoatCapacity += upgrade.Effect;
+                // boatContainer.MaxSoulsCount += upgrade.Effect;
+                break;
+
+                //Debug.LogError("Неизвестный тип улучшения");
+        }     
     }
 
     private void OnValidate()
     {
-        if(Data != null)
+        if(upgrade != null)
         {
-            if (Data.Icon != null)
-                UpgradeBtn.image.sprite = Data.Icon;
+            if (upgrade.Icon != null)
+                UpgradeBtn.image.sprite = upgrade.Icon;
 
-            PriceText.text = Data.Price.ToString();
+            PriceText.text = upgrade.Price.ToString();
 
-            EffectText.text = Data.ToString();
+            EffectText.text = upgrade.ToString();
         }
     }
 }

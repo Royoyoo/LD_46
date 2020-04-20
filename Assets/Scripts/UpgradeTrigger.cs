@@ -1,24 +1,28 @@
 ﻿using UnityEngine;
 
 public class UpgradeTrigger : MonoBehaviour
-{ 
+{
+    public UpgradeUI upgradeUI;
+
     private void OnTriggerEnter(Collider other)
     {
-        var player = other.GetComponent<PlayerController>();
-        if (player == null)
+        //var player = other.GetComponent<PlayerController>();
+        if (other.gameObject.tag != "Player")
             return;
-               
-        player.upgradeUI.Show(true);  
-        Debug.Log("UpgradeTrigger OnTriggerEnter");
+
+        upgradeUI.Show(true);
+        //player.upgradeUI.Show(true);  
+       // Debug.Log("UpgradeTrigger OnTriggerEnter");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var player = other.GetComponent<PlayerController>();
-        if (player == null)
+       // var player = other.GetComponent<PlayerController>();
+        if (other.gameObject.tag != "Player")
             return;
 
-        player.upgradeUI.Show(false);
-        Debug.Log("UpgradeTrigger OnTriggerExit");
+        upgradeUI.Show(false);
+        //player.upgradeUI.Show(false);
+        //Debug.Log("UpgradeTrigger OnTriggerExit");
     }  
 }
