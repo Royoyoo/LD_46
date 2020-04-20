@@ -20371,7 +20371,7 @@ MonoBehaviour:
   soulDestinationMarker: {fileID: 7631118250540003604}
   SoulPrefab: {fileID: -6117197675359890034, guid: e3db5114d90dde049bf1ee1e82bb002d,
     type: 3}
-  SpawnDelay: 1
+  SpawnDelay: 2
   souls: {fileID: 5878236617019111201}
   SpawnFromContainer: 0
 --- !u!1 &6425817720907042288
