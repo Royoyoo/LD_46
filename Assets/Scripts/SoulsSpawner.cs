@@ -65,6 +65,8 @@ public class SoulsSpawner : MonoBehaviour
             randomPoint.y = 0;
 
             newSoul.Destination = soulDestinationMarker.position + randomPoint * DesinationAreaRadius;
+
+            Destroy(newSoul, 10f);
         }      
 
         //OnSoulSpawn?.Invoke(souls.SoulsCount);        

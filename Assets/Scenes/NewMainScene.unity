@@ -11434,7 +11434,7 @@ PrefabInstance:
     - target: {fileID: 5348103034844336882, guid: 1b3036f4deff60f42b64a48df31d5294,
         type: 3}
       propertyPath: PopupPower
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5348103034844336885, guid: 1b3036f4deff60f42b64a48df31d5294,
         type: 3}
@@ -20068,6 +20068,11 @@ PrefabInstance:
       propertyPath: LiveShoreContainer
       value: 
       objectReference: {fileID: 5878236617019111201}
+    - target: {fileID: 6162057628555199830, guid: b06ac54cdb4f51549b90d37ab6540380,
+        type: 3}
+      propertyPath: AidShoreContainer
+      value: 
+      objectReference: {fileID: 268550379}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b06ac54cdb4f51549b90d37ab6540380, type: 3}
 --- !u!4 &6196763077721514117

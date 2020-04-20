@@ -25,6 +25,7 @@ public class GameLogic : MonoBehaviour
     int openingStep = 0;
 
     public SoulsContainer LiveShoreContainer;
+    public SoulsContainer AidShoreContainer;
 
     void Start()
     {
@@ -118,7 +119,7 @@ public class GameLogic : MonoBehaviour
 
             // перенос душ с берега к вратам ада
             LiveShoreContainer.SoulsCount -= deliveryCount;
-            Data.player.HellDoorPopulation += deliveryCount;
+            AidShoreContainer.SoulsCount += deliveryCount;
             deliveryTimes++;
 
             //Debug.Log("HellDelivery + " + deliveryCount);
