@@ -56,7 +56,7 @@ public class GameplayUI : MonoBehaviour
 
     public GameObject WinUI;
     public GameObject LoseUI;
-
+       
     void Update()
     {
         PopulationCount.text = $"World: {Data.player.WorldPopulation.ToString("F0")}/{Data.consts.TargetPopulation.ToString("F0")}";
@@ -71,7 +71,8 @@ public class GameplayUI : MonoBehaviour
 
         BoatBar.fillAmount = Data.player.CurrentBoatCapacity / Data.player.MaxBoatCapacity;
         BoatCount.text = $"{Data.player.CurrentBoatCapacity.ToString("F0")}/{Data.player.MaxBoatCapacity.ToString("F0")}";
-        CoinsCount.text = $"Coins: {Data.player.Coins.ToString("F0")}";
+        //CoinsCount.text = $"Coins: {Data.player.Coins.ToString("F0")}";
+        CoinsCount.text = $"{Data.player.Coins.ToString("F0")}";
     }
 
     public void ShowDialog(DialogSide side, DialogPortrait portrait, string message)
@@ -116,6 +117,10 @@ public class GameplayUI : MonoBehaviour
 
     public void RestartScene()
     {
+        // Set default params              
+        
+
         SceneManager.LoadScene(0);
+
     }
 }

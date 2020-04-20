@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetPopulation: 1000
   SoulsFromPopulationRate: 0.005
-  GoToHellRate: 2
+  SoulsDeadShoreSpeed: 1
+  HellDeliveryCount: 30
+  HellDeliveryTimeout: 30
+  GoToHellRate: 1
   HellAttackDeathPercent: 15
   RessurectRate: 10
   CoinsRate: 2

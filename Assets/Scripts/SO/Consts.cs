@@ -6,7 +6,16 @@ using UnityEngine;
 public class Consts : ScriptableObject
 {
     public float TargetPopulation;
+    [Header("Not used")]
     public float SoulsFromPopulationRate;
+    [Space]
+    public float SoulsDeadShoreSpeed;
+
+    [Space]
+    [Header("Поставки в ад")]
+    public int HellDeliveryCount;
+    public int HellDeliveryTimeout;
+    [Space]
 
     public float GoToHellRate;
     public float HellAttackDeathPercent;

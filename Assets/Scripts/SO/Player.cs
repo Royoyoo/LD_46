@@ -15,6 +15,7 @@ public class Player : ScriptableObject
 {
     public float Coins;
     public float WorldPopulation;
+    [Header("Души на берегу")]
     public float DeadShorePopulation;
     public float HellDoorPopulation;
 

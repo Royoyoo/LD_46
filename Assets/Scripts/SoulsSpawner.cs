@@ -30,7 +30,7 @@ public class SoulsSpawner : MonoBehaviour
 
     void Update()
     {
-        souls.SoulsCount += Data.consts.SoulsFromPopulationRate * Data.player.WorldPopulation * Time.deltaTime;
+        souls.SoulsCount += Data.consts.SoulsDeadShoreSpeed /*Data.consts.SoulsFromPopulationRate * Data.player.WorldPopulation*/ * Time.deltaTime;
         CheckSpawn();
     }
 

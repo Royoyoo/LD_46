@@ -18,12 +18,13 @@ public class DisasterUI : MonoBehaviour
 
     public void UpdateUI(DisasterData disaster, int result)
     {
+        Disaster = disaster;
         Show(true);
 
         startTime = 0f;    
 
-        if (Disaster.Icon != null)
-            DisasterImage.sprite = Disaster.Icon;
+        if (disaster.Icon != null)
+            DisasterImage.sprite = disaster.Icon;
 
         DisasterResultText.text = $"After {disaster.Name} were killed {result} people.";
             //$"{Disaster.Name}. -{100}";

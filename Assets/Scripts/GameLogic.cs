@@ -15,6 +15,8 @@ public class GameLogic : MonoBehaviour
     public bool questSet = false;
     public float questStartTime;
 
+    public SoulsContainer DeadShoreContainer;
+
     [Header("Бедствия")]
     public List<DisasterData> Disasters;
 
@@ -39,9 +41,10 @@ public class GameLogic : MonoBehaviour
 
         gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Aid, "Go-go-go!");
 
+        StartCoroutine(HellDelivery());
         StartCoroutine(HellProcess());
         StartCoroutine(QuestProcess());
-        StartCoroutine(WinLoseProcess());
+        StartCoroutine(WinLoseProcess());       
     }
 
     IEnumerator HellProcess()
@@ -64,6 +67,28 @@ public class GameLogic : MonoBehaviour
             Data.player.HellDoorPopulation -= Data.consts.GoToHellRate * Time.deltaTime;
 
             yield return null;
+        }
+    }
+
+    IEnumerator HellDelivery()
+    {
+        yield return new WaitForSeconds(Data.consts.HellDeliveryTimeout);
+
+        while (true)
+        {
+            var deliveryCount = Data.consts.HellDeliveryCount;
+            if (deliveryCount > Data.player.DeadShorePopulation)
+            {
+                deliveryCount = (int) Data.player.DeadShorePopulation;
+            }
+
+            // перенос душ с берега к вратам ада
+            Data.player.DeadShorePopulation -= deliveryCount;
+            Data.player.HellDoorPopulation += deliveryCount;
+            
+            Debug.Log("HellDelivery + " + Data.consts.HellDeliveryCount);
+
+            yield return new WaitForSeconds(Data.consts.HellDeliveryTimeout);
         }
     }
 
@@ -96,7 +121,7 @@ public class GameLogic : MonoBehaviour
     {
         while (true)
         {
-            if (Data.player.WorldPopulation <= 0)
+            if (Data.player.WorldPopulation < 1)
             {
                 gameplayUI.ShowLoseUI();
                 yield return null;
@@ -187,8 +212,15 @@ public class GameLogic : MonoBehaviour
         var killedValue =(int) (Data.player.WorldPopulation * randomDisaster.MinusSoulsPercent + randomDisaster.MinusSoulsCount);
         if (killedValue > Data.player.WorldPopulation)
             killedValue = (int)Data.player.WorldPopulation;
-
+            
         Data.player.WorldPopulation -= killedValue;//*= (100f - Data.consts.HellAttackDeathPercent) / 100f;
+
+        // убитые люди превращаются в души на берегу
+        //Debug.Log("Data.player.DeadShorePopulation " + Data.player.DeadShorePopulation);
+        //Debug.Log("killedValue " + killedValue);
+        DeadShoreContainer.SoulsCount += killedValue;
+        //Data.player.DeadShorePopulation += killedValue;
+       // Debug.Log("Data.player.DeadShorePopulation " + Data.player.DeadShorePopulation);
 
         gameplayUI.DisasterUi.UpdateUI(randomDisaster, killedValue);
 

@@ -24,7 +24,11 @@ public class ObstableSpawner : MonoBehaviour
             var pos = new Vector3(randomX, y, randomZ);
 
             var obstacle = Instantiate(ObstaclePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f), this.transform);
-            obstacle.transform.localScale *= Random.Range(0.9f, 1.3f);
+
+            var newScale = obstacle.transform.localScale;
+            newScale.x *= Random.Range(0.9f, 1.3f);
+            newScale.z *= Random.Range(0.9f, 1.3f);
+            obstacle.transform.localScale = newScale;
             // уничтожаем коллайдер, чтобы объект стал проваливаться под землю/тонуть
             Destroy(obstacle.collider, TimeOfLife - SinkTime);
             Destroy(obstacle.gameObject, TimeOfLife);

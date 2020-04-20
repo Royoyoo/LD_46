@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Plague
   Icon: {fileID: 21300000, guid: f62c45b735eb63d47a332e9bbeb3c7b1, type: 3}
   MinusSoulsPercent: 0.3
-  MinusSoulsCount: 0
+  MinusSoulsCount: 10

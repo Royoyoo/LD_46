@@ -27,11 +27,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Coins
-    value: 1000
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WorldPopulation
-    value: 100
+    value: 500
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DeadShorePopulation
@@ -51,7 +51,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: CurrentBoatCapacity
-    value: 1
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: MaxBoatCapacity
@@ -59,7 +59,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: OverboardSpeedThreshold
-    value: 0.5
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: OverboardPart

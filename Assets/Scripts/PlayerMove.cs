@@ -13,6 +13,10 @@ public class PlayerMove : MonoBehaviour
 
     public event Action<float> OnColladedWithObstable;
 
+    //максимальная глубина погружения
+    public float MaxDeep;
+    public float PopupPower;
+
     private void Awake()
     {
         collider = GetComponent<Collider>();
@@ -56,6 +60,12 @@ public class PlayerMove : MonoBehaviour
         var rotation = transform.up  * turn;
         rigidBody.AddTorque(rotation * torque);
 
+        // сила поднимающая вверх
+        if (transform.localPosition.y < MaxDeep)
+        {
+            Debug.Log("Pop up!");
+            rigidBody.AddForce(Vector3.up * PopupPower, ForceMode.Force);
+        }
         //var currentSpeed = rigidBody.velocity.magnitude;
         //if (currentSpeed > MaxSpeed)
         //    MaxSpeed = currentSpeed;
