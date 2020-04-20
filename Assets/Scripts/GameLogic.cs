@@ -20,26 +20,56 @@ public class GameLogic : MonoBehaviour
     [Header("Бедствия")]
     public List<DisasterData> Disasters;
 
+    public Animation openingAnim;
+    public GameObject helpScreen;
+    int openingStep = 0;
+
     void Start()
     {
+        isStarted = false;
         Time.timeScale = 1f;
         gameplayUI = FindObjectOfType<GameplayUI>();
         StartCoroutine(GameProgress());
     }
 
+    public void StartGame()
+    {
+        isStarted = true;
+    }
+
+    public void NextOpeningStep()
+    {
+        openingStep++;
+        openingAnim.Play($"OP_{openingStep}");
+    }
+
     IEnumerator GameProgress()
     {
-        while (!isStarted)
+        gameplayUI.gameObject.SetActive(false);
+        openingAnim.gameObject.SetActive(true);
+
+        while (openingStep < 3)
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+                NextOpeningStep();
+
             yield return null;
         }
 
-        var textDelay = new WaitForSeconds(Data.consts.StartDelay);
+        yield return new WaitForSeconds(0.5f);
 
-        gameplayUI.ShowDialog(DialogSide.Left, DialogPortrait.Haron, "Let's start.");
-        yield return textDelay;
+        openingAnim.gameObject.SetActive(false);
+        helpScreen.SetActive(true);
 
-        gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Aid, "Go-go-go!");
+        while (!isStarted)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                StartGame();
+            yield return null;
+        }
+
+        helpScreen.SetActive(false);
+        gameplayUI.gameObject.SetActive(true);
 
         StartCoroutine(HellDelivery());
         StartCoroutine(HellProcess());
@@ -226,7 +256,7 @@ public class GameLogic : MonoBehaviour
     [ContextMenu("HellAttack")]
     public void HellAttack()
     {
-        gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Tanatos, "I'll kill you all!");
+        gameplayUI.ShowDialog(DialogSide.Right, DialogPortrait.Tanatos, "OH, YOU PISSED ME OFF! TAKE THIS!");
 
         // бедствие
         var randomIndex = Random.Range(0, Disasters.Count);
