@@ -99,14 +99,16 @@ public class GameLogic : MonoBehaviour
             yield return null;
         }
     }
-
+    int deliveryTimes = 0;
     IEnumerator HellDelivery()
     {
         yield return new WaitForSeconds(Data.consts.HellDeliveryTimeout);
 
         while (true)
         {
-            var deliveryCount = Data.consts.HellDeliveryCount;
+            var bonus = Data.consts.HellDeliveryCount * deliveryTimes / 2f;
+          //  Debug.Log("Bonus " + bonus);
+            var deliveryCount = Data.consts.HellDeliveryCount + (bonus);
             if (deliveryCount > Data.player.DeadShorePopulation)
             {
                 deliveryCount = (int) Data.player.DeadShorePopulation;
@@ -115,8 +117,9 @@ public class GameLogic : MonoBehaviour
             // перенос душ с берега к вратам ада
             Data.player.DeadShorePopulation -= deliveryCount;
             Data.player.HellDoorPopulation += deliveryCount;
-            
-            Debug.Log("HellDelivery + " + Data.consts.HellDeliveryCount);
+            deliveryTimes++;
+
+        //    Debug.Log("HellDelivery + " + deliveryCount);
 
             yield return new WaitForSeconds(Data.consts.HellDeliveryTimeout);
         }
