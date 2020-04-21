@@ -15,12 +15,7 @@ public class Upgrade : MonoBehaviour
     public Action<UpgradeData> OnClickUpgrade;
 
     public PlayerController Player;
-
-    public void Awake()
-    {
-        upgrade.Price = upgrade.StartPrice;
-    }
-
+    
     public void OnClick()
     {
         // Проверка наличия денег

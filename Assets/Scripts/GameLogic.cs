@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     GameplayUI gameplayUI;
-      
-    public List<ObstableSpawner> ObstableSpawners;
+
+   // public List<ObstableSpawner> ObstableSpawners;
 
     public bool isStarted = false;
 
@@ -16,7 +16,7 @@ public class GameLogic : MonoBehaviour
     public float questStartTime;
 
     public SoulsContainer DeadShoreContainer;
-      
+
     [Header("Бедствия")]
     public List<DisasterData> Disasters;
 
@@ -77,7 +77,7 @@ public class GameLogic : MonoBehaviour
         StartCoroutine(HellDelivery());
         StartCoroutine(HellProcess());
         StartCoroutine(QuestProcess());
-        StartCoroutine(WinLoseProcess());       
+        StartCoroutine(WinLoseProcess());
     }
 
     IEnumerator HellProcess()
@@ -114,7 +114,7 @@ public class GameLogic : MonoBehaviour
             var deliveryCount = Data.consts.HellDeliveryCount + (bonus);
             if (deliveryCount > Data.player.DeadShorePopulation)
             {
-                deliveryCount = (int) Data.player.DeadShorePopulation;
+                deliveryCount = (int)Data.player.DeadShorePopulation;
             }
 
             // перенос душ с берега к вратам ада
@@ -180,7 +180,7 @@ public class GameLogic : MonoBehaviour
         if (source.SoulsCount < 1)
             return;
 
-        if(Data.player.CurrentBoatCapacity < Data.player.MaxBoatCapacity)
+        if (Data.player.CurrentBoatCapacity < Data.player.MaxBoatCapacity)
         {
             var collectedAmount = source.CollectSpeed * Time.deltaTime;
             source.SoulsCount = Mathf.Max(source.SoulsCount - collectedAmount, 0f);
@@ -199,9 +199,9 @@ public class GameLogic : MonoBehaviour
             Data.player.Coins += Data.consts.CoinsRate * amount;
         }
 
-        if(Data.player.gotQuest)
+        if (Data.player.gotQuest)
         {
-            FinishQuest();           
+            FinishQuest();
         }
 
         return amount;
@@ -229,7 +229,7 @@ public class GameLogic : MonoBehaviour
 
     public void ShowQuestMessage()
     {
-        if(questSet)
+        if (questSet)
             gameplayUI.ShowQuestMessage(activeQuest.startMessage);
     }
 
@@ -247,10 +247,14 @@ public class GameLogic : MonoBehaviour
 
     public void FinishQuest()
     {
-        var color = Data.player.currentQuest.Effect < 0 ? "red" : "green";     
-        var pupulationText = $"\nEffect: <color=\"{color}\">{Data.player.currentQuest.Effect}</color> population";
+        var effect = Data.player.currentQuest.Effect;
+        // добавляем рандом от -половина до +половины
+        var effectWithRandom = (int)(effect +Random.Range(-effect * 0.5f, effect * 0.5f));
+
+        var color = effectWithRandom < 0 ? "red" : "green";
+        var pupulationText = $"\nEffect: <color=\"{color}\">{effectWithRandom}</color> population";
         gameplayUI.ShowQuestMessage(activeQuest.finishMessage + pupulationText);
-        Data.player.WorldPopulation += Data.player.currentQuest.Effect;
+        Data.player.WorldPopulation += effectWithRandom;
 
         Data.player.currentQuest = null;
         Data.player.gotQuest = false;
@@ -273,10 +277,10 @@ public class GameLogic : MonoBehaviour
         var randomIndex = Random.Range(0, Disasters.Count);
         var randomDisaster = Disasters[randomIndex];
 
-        var killedValue =(int) (Data.player.WorldPopulation * randomDisaster.MinusSoulsPercent + randomDisaster.MinusSoulsCount);
+        var killedValue = (int)(Data.player.WorldPopulation * randomDisaster.MinusSoulsPercent + randomDisaster.MinusSoulsCount);
         if (killedValue > Data.player.WorldPopulation)
             killedValue = (int)Data.player.WorldPopulation;
-            
+
         Data.player.WorldPopulation -= killedValue;//*= (100f - Data.consts.HellAttackDeathPercent) / 100f;
 
         // убитые люди превращаются в души на берегу
@@ -284,7 +288,7 @@ public class GameLogic : MonoBehaviour
         //Debug.Log("killedValue " + killedValue);
         DeadShoreContainer.SoulsCount += killedValue;
         //Data.player.DeadShorePopulation += killedValue;
-       // Debug.Log("Data.player.DeadShorePopulation " + Data.player.DeadShorePopulation);
+        // Debug.Log("Data.player.DeadShorePopulation " + Data.player.DeadShorePopulation);
 
         gameplayUI.DisasterUi.UpdateUI(randomDisaster, killedValue);
 
