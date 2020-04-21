@@ -41,7 +41,7 @@ public class Upgrade : MonoBehaviour
         {
             case UpgradeType.Speed:
                 Player.playerMove.speed += upgrade.Effect;
-                Player.playerMove.torque += upgrade.Effect/2;
+                Player.playerMove.torque += upgrade.Effect * Data.player.TorqueSpeedRelation;
                 break;
 
             case UpgradeType.Mobility:
@@ -67,7 +67,7 @@ public class Upgrade : MonoBehaviour
                     break;
                 }
                 Player.playerMove.speed -= upgrade.NegativeEffect;
-                Player.playerMove.torque -= upgrade.NegativeEffect / 2;               
+                Player.playerMove.torque -= upgrade.NegativeEffect * Data.player.TorqueSpeedRelation;               
                 break;
 
             case UpgradeType.Mobility:

@@ -21,6 +21,7 @@ MonoBehaviour:
   LoadTime: 1.5
   CurrentBoatCapacity: 0
   MaxBoatCapacity: 10
+  TorqueSpeedRelation: 0.75
   OverboardSpeedThreshold: 1
   OverboardPart: 0.1
   gotQuest: 0
