@@ -56,6 +56,8 @@ public class GameplayUI : MonoBehaviour
 
     public GameObject WinUI;
     public GameObject LoseUI;
+
+    public GameObject tutorScreen;
        
     void Update()
     {
@@ -115,12 +117,13 @@ public class GameplayUI : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void ToggleHelp()
+    {
+        tutorScreen.SetActive(!tutorScreen.activeSelf);
+    }
+
     public void RestartScene()
     {
-        // Set default params              
-        
-
         SceneManager.LoadScene(0);
-
     }
 }
