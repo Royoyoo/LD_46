@@ -247,7 +247,9 @@ public class GameLogic : MonoBehaviour
 
     public void FinishQuest()
     {
-        gameplayUI.ShowQuestMessage(activeQuest.finishMessage);
+        var color = Data.player.currentQuest.Effect < 0 ? "red" : "green";     
+        var pupulationText = $"\nEffect: <color=\"{color}\">{Data.player.currentQuest.Effect}</color> population";
+        gameplayUI.ShowQuestMessage(activeQuest.finishMessage + pupulationText);
         Data.player.WorldPopulation += Data.player.currentQuest.Effect;
 
         Data.player.currentQuest = null;
