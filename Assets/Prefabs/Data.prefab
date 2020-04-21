@@ -59,13 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018d7093228e64747afcb9749fbb649f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstableSpawners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   isStarted: 1
   allQuests:
   - startMessage: "I\u2019m a famous spartan warleader! Save me and I will lead my
@@ -80,11 +73,11 @@ MonoBehaviour:
   - startMessage: "I\u2019m an astrologer. It is a horrible torment for me, to live
       without the stars. Free me, and I will not let you down!"
     finishMessage: Thank you, Charon. I will do whatever I can to help!
-    Effect: 50
+    Effect: 75
   - startMessage: "I\u2019m a warrior! Take me out of here, and I will fight of monsters!"
     finishMessage: You are such a naive person! What monsters? There are only cataclysms
       of sorts! But I like killing people!
-    Effect: -100
+    Effect: -75
   activeQuest:
     startMessage: 
     finishMessage: 
