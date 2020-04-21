@@ -26,6 +26,9 @@ public class Player : ScriptableObject
     public float LoadTime = 1.5f;
     public float CurrentBoatCapacity;
     public float MaxBoatCapacity;
+       
+    [Header("Cкорости к маневр. для улучшений")]    
+    public float TorqueSpeedRelation = 0.75f;
 
     [Header("Скорость (Для выпадения душ)")]
     // за каждые 0,5 скорости    
