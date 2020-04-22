@@ -5115,6 +5115,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4803251364907046897, guid: b19c230efd836b04ba55a63394b3815b,
+        type: 3}
+      propertyPath: m_Name
+      value: SosuliSpawner
+      objectReference: {fileID: 0}
     - target: {fileID: 1490074552170575723, guid: b19c230efd836b04ba55a63394b3815b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5225,10 +5230,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4803251364907046897, guid: b19c230efd836b04ba55a63394b3815b,
+    - target: {fileID: 4803251364907046862, guid: b19c230efd836b04ba55a63394b3815b,
         type: 3}
-      propertyPath: m_Name
-      value: SosuliSpawner
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803251364907046862, guid: b19c230efd836b04ba55a63394b3815b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803251364907046862, guid: b19c230efd836b04ba55a63394b3815b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19c230efd836b04ba55a63394b3815b, type: 3}
@@ -10450,6 +10465,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7062301992418243571}
     m_Modifications:
+    - target: {fileID: 2586197489815449527, guid: 2ba5feac81936064792a49751b936d3b,
+        type: 3}
+      propertyPath: m_Name
+      value: SoulsDissolver
+      objectReference: {fileID: 0}
     - target: {fileID: 144250092, guid: 2ba5feac81936064792a49751b936d3b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 6.22
@@ -10457,11 +10477,6 @@ PrefabInstance:
     - target: {fileID: 144250092, guid: 2ba5feac81936064792a49751b936d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 2586197489815449527, guid: 2ba5feac81936064792a49751b936d3b,
-        type: 3}
-      propertyPath: m_Name
-      value: SoulsDissolver
       objectReference: {fileID: 0}
     - target: {fileID: 5567620249004663069, guid: 2ba5feac81936064792a49751b936d3b,
         type: 3}
@@ -11240,6 +11255,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 309956536690993022, guid: 63e3d70bde33a0344af0930616ba0846,
+        type: 3}
+      propertyPath: m_Name
+      value: QuestTrigger
+      objectReference: {fileID: 0}
     - target: {fileID: 309956535368731936, guid: 63e3d70bde33a0344af0930616ba0846,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -11360,11 +11380,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 309956536690993022, guid: 63e3d70bde33a0344af0930616ba0846,
-        type: 3}
-      propertyPath: m_Name
-      value: QuestTrigger
-      objectReference: {fileID: 0}
     - target: {fileID: 309956536690993023, guid: 63e3d70bde33a0344af0930616ba0846,
         type: 3}
       propertyPath: m_Radius
@@ -11379,6 +11394,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035863171356822277, guid: 53747e5582d412a498083a7041423e43,
+        type: 3}
+      propertyPath: m_Name
+      value: Kharon
+      objectReference: {fileID: 0}
     - target: {fileID: 2147432565046503462, guid: 1b3036f4deff60f42b64a48df31d5294,
         type: 3}
       propertyPath: m_Range
@@ -11543,11 +11563,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035863171356822277, guid: 53747e5582d412a498083a7041423e43,
-        type: 3}
-      propertyPath: m_Name
-      value: Kharon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b3036f4deff60f42b64a48df31d5294, type: 3}
@@ -11825,6 +11840,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1157830835}
     m_Modifications:
+    - target: {fileID: 2586197489815449527, guid: 2ba5feac81936064792a49751b936d3b,
+        type: 3}
+      propertyPath: m_Name
+      value: SoulsDissolver
+      objectReference: {fileID: 0}
     - target: {fileID: 144250092, guid: 2ba5feac81936064792a49751b936d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.86
@@ -11832,11 +11852,6 @@ PrefabInstance:
     - target: {fileID: 144250092, guid: 2ba5feac81936064792a49751b936d3b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 2586197489815449527, guid: 2ba5feac81936064792a49751b936d3b,
-        type: 3}
-      propertyPath: m_Name
-      value: SoulsDissolver
       objectReference: {fileID: 0}
     - target: {fileID: 5567620249004663069, guid: 2ba5feac81936064792a49751b936d3b,
         type: 3}
@@ -12530,6 +12545,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timeout: 20
+  AdditionalHeight: 3
+  ObstaclePrefabs:
+  - {fileID: 6156500589269238402, guid: 290bceb221ceac040a85d42c766c7e79, type: 3}
+  - {fileID: 6156500589269238402, guid: 6a8e9f66d93e47242927354582e185d2, type: 3}
+  - {fileID: 5791945763207324115, guid: 5c294ec8df7b01541b6030ccbc02d420, type: 3}
 --- !u!1 &1668167035
 GameObject:
   m_ObjectHideFlags: 0
@@ -19886,6 +19906,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6162057628555199831, guid: b06ac54cdb4f51549b90d37ab6540380,
+        type: 3}
+      propertyPath: m_Name
+      value: Data
+      objectReference: {fileID: 0}
     - target: {fileID: 6162057628555199828, guid: b06ac54cdb4f51549b90d37ab6540380,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19966,11 +19991,6 @@ PrefabInstance:
       propertyPath: AidShoreContainer
       value: 
       objectReference: {fileID: 268550379}
-    - target: {fileID: 6162057628555199831, guid: b06ac54cdb4f51549b90d37ab6540380,
-        type: 3}
-      propertyPath: m_Name
-      value: Data
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b06ac54cdb4f51549b90d37ab6540380, type: 3}
 --- !u!4 &6196763077721514117
@@ -23395,16 +23415,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8141487967204301490, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
-        type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 2015634774}
     - target: {fileID: 8471505661511826354, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8141487967204301490, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2015634774}
     - target: {fileID: 8471505661511826355, guid: 51184b4d627f2194b8d6db6d5ffa1a24,
         type: 3}
       propertyPath: m_LocalPosition.x

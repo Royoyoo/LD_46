@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstableSpawner : MonoBehaviour
@@ -7,7 +6,7 @@ public class ObstableSpawner : MonoBehaviour
     [Header("Сталактиты")]
     public int obstaclesSpawnCount = 2;
     public Vector2 LocationBounds;
-    public SpawnedObstacle ObstaclePrefab;
+    public SpawnedObstacle[] ObstaclePrefab;
     [Range(1, 60)]
     public float TimeOfLife = 20;
     // За сколько секунд до смерти начинает тонуть
@@ -23,7 +22,9 @@ public class ObstableSpawner : MonoBehaviour
             var randomZ = Random.Range(-LocationBounds.y, LocationBounds.y) + transform.position.z;
             var pos = new Vector3(randomX, y, randomZ);
 
-            var obstacle = Instantiate(ObstaclePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f), this.transform);
+            var randomIndex = Random.Range(0, ObstaclePrefab.Length);
+            var randomPrefab = ObstaclePrefab[randomIndex];
+            var obstacle = Instantiate(randomPrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f), this.transform);
 
             var newScale = obstacle.transform.localScale;
             newScale.x *= Random.Range(0.9f, 1.3f);
@@ -37,16 +38,19 @@ public class ObstableSpawner : MonoBehaviour
         }
     }
 
-    public void Spawn2()
+    public void Spawn2(int additionalHeight)
     {
         for (int i = 0; i < obstaclesSpawnCount; i++)
         {
             var randomX = Random.Range(-LocationBounds.x, LocationBounds.x) + transform.position.x;
-            var y = transform.position.y + Random.Range(0, 5f);
+            // каждый следующий выше (имитация задержки)
+            var y = transform.position.y + i*2 + additionalHeight;
             var randomZ = Random.Range(-LocationBounds.y, LocationBounds.y) + transform.position.z;
             var pos = new Vector3(randomX, y, randomZ);
 
-            var obstacle = Instantiate(ObstaclePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f), this.transform);
+            var randomIndex = Random.Range(0, ObstaclePrefab.Length);
+            var randomPrefab = ObstaclePrefab[randomIndex];
+            var obstacle = Instantiate(randomPrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360f), 0f), this.transform);
 
             var newScale = obstacle.transform.localScale;
             newScale.x *= Random.Range(0.9f, 1.3f);

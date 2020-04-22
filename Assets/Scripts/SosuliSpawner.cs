@@ -4,13 +4,23 @@ using UnityEngine;
 public class SosuliSpawner : MonoBehaviour
 {
     [Range(1, 60)]
-    public int Timeout;
+    [SerializeField] private int Timeout;
+
+    [Range(1, 10)]
+    [SerializeField] private int AdditionalHeight;
+
+    [SerializeField] private SpawnedObstacle[] ObstaclePrefabs;  
 
     ObstableSpawner[] spawners;
 
     void Start()
     {
         spawners = GetComponentsInChildren<ObstableSpawner>();
+        foreach (var spawner in spawners)
+        {
+            // todo 
+            spawner.ObstaclePrefab = ObstaclePrefabs;
+        }
 
         StartCoroutine(Spawn());
     }
@@ -31,9 +41,9 @@ public class SosuliSpawner : MonoBehaviour
     [ContextMenu("SpawnAll")]
     private void SpawnAll()
     {
-        foreach (var spawner in spawners)
+        for (int i = 0; i < spawners.Length; i++)
         {
-            spawner.Spawn2();
+            spawners[i].Spawn2(i * 3);
         }
     }
 }
