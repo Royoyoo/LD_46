@@ -43,7 +43,7 @@ public class SosuliSpawner : MonoBehaviour
     {
         for (int i = 0; i < spawners.Length; i++)
         {
-            spawners[i].Spawn2(i * 3);
+            spawners[i].Spawn2(i * AdditionalHeight);
         }
     }
 }

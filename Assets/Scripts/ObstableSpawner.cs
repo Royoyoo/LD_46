@@ -31,7 +31,7 @@ public class ObstableSpawner : MonoBehaviour
             newScale.z *= Random.Range(0.9f, 1.3f);
             obstacle.transform.localScale = newScale;
             // уничтожаем коллайдер, чтобы объект стал проваливаться под землю/тонуть
-            Destroy(obstacle.collider, TimeOfLife - SinkTime);
+            Destroy(obstacle.Collider, TimeOfLife - SinkTime);
             Destroy(obstacle.gameObject, TimeOfLife);
 
             yield return new WaitForSeconds(0.1f);
@@ -57,7 +57,7 @@ public class ObstableSpawner : MonoBehaviour
             newScale.z *= Random.Range(0.9f, 1.3f);
             obstacle.transform.localScale = newScale;
             // уничтожаем коллайдер, чтобы объект стал проваливаться под землю/тонуть
-            Destroy(obstacle.collider, TimeOfLife - SinkTime);
+            Destroy(obstacle.Collider, TimeOfLife - SinkTime);
             Destroy(obstacle.gameObject, TimeOfLife);
         }
     }

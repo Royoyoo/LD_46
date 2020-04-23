@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4803251364907046862}
+  - component: {fileID: 1626680426}
   m_Layer: 0
   m_Name: SosuliSpawner
   m_TagString: Untagged
@@ -36,6 +37,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626680426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803251364907046897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c880deb752dc248b121f2d86286848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timeout: 20
+  AdditionalHeight: 0
+  ObstaclePrefabs:
+  - {fileID: 6156500589269238402, guid: 290bceb221ceac040a85d42c766c7e79, type: 3}
+  - {fileID: 6156500589269238402, guid: 6a8e9f66d93e47242927354582e185d2, type: 3}
+  - {fileID: 6156500589269238402, guid: f63fcfaf9d658e54a94ea3db2b2c6a0a, type: 3}
+  - {fileID: 6156500589269238402, guid: 484ffbf6d06f48c4b8e0b27b46c97036, type: 3}
 --- !u!1001 &4803251363391724661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48,25 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstableSpawner (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: obstaclesSpawnCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.x
-      value: 5.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.y
-      value: 9.13
-      objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.7
+      value: 6.98
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -76,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22
+      value: 22.35
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -118,6 +123,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: obstaclesSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.x
+      value: 8.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.y
+      value: 6.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344a0a425c6b2d546adccb0fe0027bbf, type: 3}
 --- !u!4 &1490074553770724393 stripped
@@ -138,25 +158,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstableSpawner (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: obstaclesSpawnCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.y
-      value: 8.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.x
-      value: 9.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.2
+      value: -19.93
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -166,7 +171,7 @@ PrefabInstance:
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.74
+      value: -7.58
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -208,6 +213,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: obstaclesSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.x
+      value: 9.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.y
+      value: 7.98
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344a0a425c6b2d546adccb0fe0027bbf, type: 3}
 --- !u!4 &1490074553913648722 stripped
@@ -228,25 +248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstableSpawner (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: obstaclesSpawnCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.x
-      value: 11.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.y
-      value: 12.3
-      objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.22
+      value: -17.8
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -298,6 +303,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: obstaclesSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.x
+      value: 15.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.y
+      value: 12.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344a0a425c6b2d546adccb0fe0027bbf, type: 3}
 --- !u!4 &1490074553881061433 stripped
@@ -317,21 +337,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ObstableSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: obstaclesSpawnCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.x
-      value: 9.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.y
-      value: 8.03
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -388,6 +393,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: obstaclesSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.x
+      value: 9.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.y
+      value: 8.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344a0a425c6b2d546adccb0fe0027bbf, type: 3}
 --- !u!4 &1490074553958039108 stripped
@@ -407,21 +427,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ObstableSpawner (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: obstaclesSpawnCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.x
-      value: 6.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.y
-      value: 6.59
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -478,6 +483,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: obstaclesSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.x
+      value: 6.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.y
+      value: 6.59
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344a0a425c6b2d546adccb0fe0027bbf, type: 3}
 --- !u!4 &1490074552878207912 stripped
@@ -498,25 +518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstableSpawner (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: obstaclesSpawnCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.x
-      value: 5.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
-        type: 3}
-      propertyPath: LocationBounds.y
-      value: 8.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.09
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -526,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.29
+      value: 5.86
       objectReference: {fileID: 0}
     - target: {fileID: 6198463008306729052, guid: 344a0a425c6b2d546adccb0fe0027bbf,
         type: 3}
@@ -567,6 +572,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: obstaclesSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.x
+      value: 5.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198463008306729053, guid: 344a0a425c6b2d546adccb0fe0027bbf,
+        type: 3}
+      propertyPath: LocationBounds.y
+      value: 8.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344a0a425c6b2d546adccb0fe0027bbf, type: 3}
