@@ -38,6 +38,8 @@ public class GameLogic : MonoBehaviour
     public void StartGame()
     {
         isStarted = true;
+        //Debug.Log("StartGame");
+        gameplayUI.Tutorial.StartShow();
     }
 
     public void NextOpeningStep()

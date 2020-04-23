@@ -58,7 +58,9 @@ public class GameplayUI : MonoBehaviour
     public GameObject LoseUI;
 
     public GameObject tutorScreen;
-       
+
+    public Tutorial Tutorial;
+
     void Update()
     {
         PopulationCount.text = $"World: {Data.player.WorldPopulation.ToString("F0")}/{Data.consts.TargetPopulation.ToString("F0")}";

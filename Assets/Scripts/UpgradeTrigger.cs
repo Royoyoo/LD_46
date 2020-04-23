@@ -6,10 +6,15 @@ public class UpgradeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //var player = other.GetComponent<PlayerController>();
-        if (other.gameObject.tag != "Player")
+        var player = other.GetComponent<PlayerController>();
+        if (player == null)
             return;
 
+        EventBroker.Call_VisitUpgradeTrigger();
+
+        //if (other.gameObject.tag != "Player")
+        //    return;
+               
         upgradeUI.Show(true);
         //player.upgradeUI.Show(true);  
        // Debug.Log("UpgradeTrigger OnTriggerEnter");
@@ -17,9 +22,12 @@ public class UpgradeTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-       // var player = other.GetComponent<PlayerController>();
-        if (other.gameObject.tag != "Player")
+        var player = other.GetComponent<PlayerController>();
+        if (player == null)
             return;
+
+        //if (other.gameObject.tag != "Player")
+        //    return;
 
         upgradeUI.Show(false);
         //player.upgradeUI.Show(false);

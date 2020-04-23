@@ -20,6 +20,7 @@ public class QuestTrigger : MonoBehaviour
         player.CanTakeQuest = true;
         FindObjectOfType<GameLogic>().ShowQuestMessage();
 
+        EventBroker.Call_VisitQuestTrigger();
         //if (Data.player.gotQuest == false)
         //{
         //    player.CanTakeQuest = true;

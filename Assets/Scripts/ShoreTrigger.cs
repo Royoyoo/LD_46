@@ -8,38 +8,38 @@ public enum InteractionType
     Collect,    
 }
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Collider))]
 public class ShoreTrigger : MonoBehaviour
 {
     public SoulsContainer souls;
 
     //public InteractionType InteractionType;
-
+      
     private void OnTriggerEnter(Collider other)
     {
         //if(other.gameObject.tag == "Player")
         //{        
         var player = other.GetComponent<PlayerController>();
-        if (player != null)
-        {
-          
-            player.InteractionContainer = souls;
-            //player.InteractionType = InteractionType;
+        if (player == null)        
+            return;  
 
-            Debug.Log("souls.SoulsCount  " + souls.soulsCount);
-            //Debug.Log("OnTriggerEnter Player " + Type);
-        }
+        player.InteractionContainer = souls;
+        //player.InteractionType = InteractionType;
+
+        EventBroker.Call_VisitShoreTrigger(souls);
+
+        Debug.Log("souls.SoulsCount  " + souls.soulsCount);
         //}     
     }
 
     private void OnTriggerExit(Collider other)
     {
         var player = other.GetComponent<PlayerController>();
-        if (player != null)
-        {
-            player.InteractionContainer = null;
+        if (player == null)        
+            return;
             //Debug.Log("OnTriggerExit Player " + Type);
-        }
+        
+        player.InteractionContainer = null;
         //if (other.gameObject.tag == "Player")
         //{
         //    Debug.Log("OnTriggerExit Player " + Type);

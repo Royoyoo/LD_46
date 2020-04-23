@@ -12549,7 +12549,6 @@ MonoBehaviour:
   ObstaclePrefabs:
   - {fileID: 6156500589269238402, guid: 290bceb221ceac040a85d42c766c7e79, type: 3}
   - {fileID: 6156500589269238402, guid: 6a8e9f66d93e47242927354582e185d2, type: 3}
-  - {fileID: 5791945763207324115, guid: 5c294ec8df7b01541b6030ccbc02d420, type: 3}
 --- !u!1 &1668167035
 GameObject:
   m_ObjectHideFlags: 0
