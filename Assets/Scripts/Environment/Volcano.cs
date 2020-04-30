@@ -21,6 +21,7 @@ public class Volcano : MonoBehaviour
 
     [Space]
     [Header("Лавовые снаряды")]
+   // [SerializeField] private bool enable;
     [SerializeField] private int shellCount;
     [SerializeField] private LavaShell lavaShellPrefab;
     [SerializeField] private Transform lavaShellsContentParent;
@@ -29,7 +30,9 @@ public class Volcano : MonoBehaviour
     [Range(1f, 50f)]
     [SerializeField] private float targetArea;
     [SerializeField] private Transform targetPoint;
-
+    [Range(0.1f, 5f)]
+    [SerializeField] private float timeout = 0.1f;
+    
     private List<GameObject> bubles;
     private List<GameObject> destroyBubles;
 
@@ -72,7 +75,7 @@ public class Volcano : MonoBehaviour
                 Destroy(buble);
             }
         }
-
+         
         /*
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -87,14 +90,14 @@ public class Volcano : MonoBehaviour
     }
 
     private IEnumerator LaunchAll(Vector3 targetPoint)
-    {
+    {        
         for (int i = 0; i < shellCount; i++)
         {
             var randomPoint = targetPoint + Random.insideUnitSphere * targetArea;
             randomPoint.y = 0;
             Launch(randomPoint);
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(timeout);
         }
     }
 

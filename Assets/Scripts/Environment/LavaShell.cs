@@ -17,8 +17,8 @@ public class LavaShell : MonoBehaviour
 	{
 		collider = GetComponent<SphereCollider>();
 		rb = GetComponent<Rigidbody>();
-		collider.enabled = false;
-		rb.useGravity = false;
+		//collider.enabled = false;
+		//rb.useGravity = false;
 	}
 
 	public void Init(Vector3 launchPoint, Vector3 targetPoint, Vector3 launchVelocity)
