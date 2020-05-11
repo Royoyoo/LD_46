@@ -8,7 +8,9 @@ public class PlayerMove : MonoBehaviour
 
     private Collider collider;
     private Rigidbody rigidBody;
-    
+
+    public Rigidbody RigidBody => rigidBody;
+
     //public float MaxSpeed ;
 
     public event Action<float> OnColladedWithObstable;

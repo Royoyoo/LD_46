@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class Volcano : MonoBehaviour
 {
     [SerializeField] private GameObject lavaItemPrefab;
-       
+
+    [Range(1, 60)]
+    [SerializeField] private int timeout;
+
     [Header("Пузырики")]
     [SerializeField] private bool bubleEnable;
     [SerializeField] private GameObject lavaBublePrefab;
@@ -31,8 +35,13 @@ public class Volcano : MonoBehaviour
     [SerializeField] private float targetArea;
     [SerializeField] private Transform targetPoint;
     [Range(0.1f, 5f)]
-    [SerializeField] private float timeout = 0.1f;
-    
+    [SerializeField] private float launchTimeout = 0.1f;
+
+    [SerializeField] ObstableSpawner[] obstableAreas;
+
+  
+
+
     private List<GameObject> bubles;
     private List<GameObject> destroyBubles;
 
@@ -41,6 +50,22 @@ public class Volcano : MonoBehaviour
     {
         bubles = new List<GameObject>(10);
         destroyBubles = new List<GameObject>(10);
+
+        StartCoroutine(GameLoop());
+    }
+
+    private IEnumerator GameLoop()
+    {
+        yield return new WaitForSeconds(Data.consts.StartDelay);
+
+        while (true)
+        {
+            yield return new WaitForSeconds(timeout);
+
+            var points = obstableAreas.Select(t => t.GetRandomXY()).ToArray();
+
+            yield return LaunchAll(points);
+        }
     }
 
     private void Update()
@@ -76,12 +101,13 @@ public class Volcano : MonoBehaviour
             }
         }
          
+        
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    var points = obstableAreas.Select(t => t.GetRandomXY()).ToArray();         
+        //    StartCoroutine(LaunchAll(points));
+        //}
         /*
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            StartCoroutine(LaunchAll(targetPoint.position));
-        }
-
         if (Input.GetKeyDown(KeyCode.X))
         {
             //  explode();
@@ -97,8 +123,23 @@ public class Volcano : MonoBehaviour
             randomPoint.y = 0;
             Launch(randomPoint);
 
-            yield return new WaitForSeconds(timeout);
+            yield return new WaitForSeconds(launchTimeout);
         }
+    }
+
+    private IEnumerator LaunchAll(Vector3[] targetPoints)
+    {
+        foreach (var targetPoint in targetPoints)
+        {
+            for (int i = 0; i < shellCount; i++)
+            {
+                var randomPoint = targetPoint + Random.insideUnitSphere * targetArea;
+                randomPoint.y = 0;
+                Launch(randomPoint);
+
+                yield return new WaitForSeconds(launchTimeout);
+            }         
+        }      
     }
 
     public void Launch(Vector3 targetPoint)
@@ -142,7 +183,7 @@ public class Volcano : MonoBehaviour
         var lavaShell = Instantiate(lavaShellPrefab, lavaShellsContentParent);
         //lavaShell.transform.position += lavaShellsContentParent.transform.position;
         var launchVelocity = new Vector3(s * cosTheta * dir.x, s * sinTheta, s * cosTheta * dir.y);
-        lavaShell.Init(launchPoint, targetPoint, launchVelocity);
+        lavaShell.Init(launchPoint, targetPoint, launchVelocity);        
     }
 
     private void OnDrawGizmos()

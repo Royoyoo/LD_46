@@ -16,11 +16,8 @@ public class ObstableSpawner : MonoBehaviour
     public IEnumerator Spawn()
     {
         for (int i = 0; i < obstaclesSpawnCount; i++)
-        {
-            var randomX = Random.Range(-LocationBounds.x, LocationBounds.x) + transform.position.x;
-            var y = transform.position.y;
-            var randomZ = Random.Range(-LocationBounds.y, LocationBounds.y) + transform.position.z;
-            var pos = new Vector3(randomX, y, randomZ);
+        {           
+            var pos = GetRandomXY();
 
             var randomIndex = Random.Range(0, ObstaclePrefab.Length);
             var randomPrefab = ObstaclePrefab[randomIndex];
@@ -36,6 +33,15 @@ public class ObstableSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+   public Vector3 GetRandomXY()
+    {
+        var randomX = Random.Range(-LocationBounds.x, LocationBounds.x) + transform.position.x;
+        var y = transform.position.y;
+        var randomZ = Random.Range(-LocationBounds.y, LocationBounds.y) + transform.position.z;
+        var pos = new Vector3(randomX, y, randomZ);
+        return pos;
     }
 
     public void Spawn2(int additionalHeight)

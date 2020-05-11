@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37df52093b0f2f446bea228b5e308a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectangleForce: 7
-  sphereForce: 8
-  radiusSphereForce: 10
+  rectangleForce: 20
+  sphereForce: 30
+  radiusSphereForce: 11
 --- !u!65 &5874328963428052725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 6081351065899375615}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 5874328963428052731}
   m_RootOrder: 0
