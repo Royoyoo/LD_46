@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98064dc02a7f6ef479e0e30f8574d53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timeout: 5
-  TimeOfAction: 10
+  Timeout: 6
+  TimeOfAction: 8
 --- !u!4 &113231826
 Transform:
   m_ObjectHideFlags: 0
@@ -7438,11 +7438,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5874328963428052726, guid: 790271caccf52864e977c9d973cf4108,
-        type: 3}
-      propertyPath: radiusSphereForce
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 5874328963428052725, guid: 790271caccf52864e977c9d973cf4108,
         type: 3}
       propertyPath: m_Center.x
@@ -7684,6 +7679,16 @@ PrefabInstance:
       propertyPath: radiusSphereForce
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5874328963428052726, guid: 790271caccf52864e977c9d973cf4108,
+        type: 3}
+      propertyPath: rectangleForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874328963428052726, guid: 790271caccf52864e977c9d973cf4108,
+        type: 3}
+      propertyPath: sphereForce
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5874328963428052725, guid: 790271caccf52864e977c9d973cf4108,
         type: 3}
       propertyPath: m_Center.x
@@ -7708,21 +7713,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 70.66577
-      objectReference: {fileID: 0}
-    - target: {fileID: 3728286407571064451, guid: 790271caccf52864e977c9d973cf4108,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3728286407571064451, guid: 790271caccf52864e977c9d973cf4108,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3728286407571064451, guid: 790271caccf52864e977c9d973cf4108,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790271caccf52864e977c9d973cf4108, type: 3}
