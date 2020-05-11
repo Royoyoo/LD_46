@@ -1,23 +1,17 @@
 ﻿using UnityEngine;
 
 public class ConfusingFog : MonoBehaviour
-{     
+{
+    [Range(1f, 10f)]
+    [SerializeField] private float confuseTime;
+
     private void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<PlayerController>();
         if (player == null)
             return;
 
-        player.playerMove.Confused = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        var player = other.GetComponent<PlayerController>();
-        if (player == null)
-            return;
-
-        player.playerMove.Confused = false;
+        player.playerMove.Confuse(confuseTime);
     }
 
     //private void OnDrawGizmos()

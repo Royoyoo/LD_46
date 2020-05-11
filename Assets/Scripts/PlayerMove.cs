@@ -15,7 +15,10 @@ public class PlayerMove : MonoBehaviour
 
     public event Action<float> OnColladedWithObstable;
 
-    public bool Confused = false;
+    private bool confused = false;
+    private float confuseTime;
+       
+    private float confuseProcess;
 
     private void Awake()
     {
@@ -23,35 +26,32 @@ public class PlayerMove : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
    
+    public void Confuse(float confuseTime)
+    {
+        this.confuseTime = confuseTime;
+        confused = true;
+        confuseProcess = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        //Vector2 playerInput;
-        //playerInput.x = Input.GetAxis("Horizontal");
-        //playerInput.y = Input.GetAxis("Vertical");
-        //playerInput = Vector2.ClampMagnitude(playerInput, 1f);
-        //Vector3 displacement = new Vector3(playerInput.x, 0, playerInput.y);
-        //transform.localPosition += displacement;
-
-        // вперед / назад
-        /*var forward = Input.GetAxis("Vertical");
-        var direction = new Vector3(forward, 0f, 0f); // Vector3.right
-        var force = speed * direction * Time.deltaTime;
-        Debug.Log("force = " + force );
-        rigidBody.AddRelativeForce(force, ForceMode.Force);*/
-
-        // повороты
-        //var horizontal = Input.GetAxis("Horizontal");
-        //var rotation = new Vector3(forward, 0f, 0f); // Vector3.right
-        //rigidBody.AddTorque(1f, ForceMode.Force);
-
+        if (confused)
+        {
+            confuseProcess += Time.deltaTime;
+            if(confuseProcess >= confuseTime)
+            {
+                confuseProcess = 0;
+                confused = false;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         // вперед / назад
         var forward = Input.GetAxis("Vertical");
-        if (Confused)
+        if (confused)
             forward *= -1;
 
         var trimForward = Mathf.Clamp(forward, -0.5f, 1);
@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour
 
         // повороты
         float turn = Input.GetAxis("Horizontal");
-        if (Confused)
+        if (confused)
             turn *= -1;
 
         var rotation = transform.up  * turn;
