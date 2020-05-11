@@ -5,7 +5,7 @@ public class ConfusingFog : MonoBehaviour
     [Range(1f, 10f)]
     [SerializeField] private float confuseTime;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         var player = other.GetComponent<PlayerController>();
         if (player == null)
