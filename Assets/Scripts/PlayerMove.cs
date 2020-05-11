@@ -14,7 +14,8 @@ public class PlayerMove : MonoBehaviour
     //public float MaxSpeed ;
 
     public event Action<float> OnColladedWithObstable;
-      
+
+    public bool Confused = false;
 
     private void Awake()
     {
@@ -50,12 +51,18 @@ public class PlayerMove : MonoBehaviour
     {
         // вперед / назад
         var forward = Input.GetAxis("Vertical");
+        if (Confused)
+            forward *= -1;
+
         var trimForward = Mathf.Clamp(forward, -0.5f, 1);
         var direction = transform.forward * trimForward;
         rigidBody.AddForce(direction * speed);
 
         // повороты
         float turn = Input.GetAxis("Horizontal");
+        if (Confused)
+            turn *= -1;
+
         var rotation = transform.up  * turn;
         rigidBody.AddTorque(rotation * torque);
 

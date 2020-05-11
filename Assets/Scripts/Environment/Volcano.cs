@@ -39,9 +39,6 @@ public class Volcano : MonoBehaviour
 
     [SerializeField] ObstableSpawner[] obstableAreas;
 
-  
-
-
     private List<GameObject> bubles;
     private List<GameObject> destroyBubles;
 
